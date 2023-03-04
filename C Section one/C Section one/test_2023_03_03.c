@@ -1,3 +1,4 @@
+#define _CRT_SECURE_NO_WARNINGS 1
 
 
 //stdio - std input  output
@@ -66,13 +67,224 @@
 
 #include <stdio.h>
 
-int global = 2019;//全局变量
+//int global = 2019;//全局变量
+//int main()
+//{
+//	int local = 2018;//局部变量
+//	//下面定义的global会不会有问题？
+//	int global = 2020;//局部变量
+//	printf("global = %d\n", global);
+//	return 0;
+//}
+
+
+//计算两个整数的和
+//int main()
+//{
+//
+//	int num1 = 0;
+//	int num2 = 0;
+//	int sum = 0;
+//	//输入
+//	scanf("%d %d",&num1,&num2);
+//	//& - 取地址
+//	//计算
+//	sum = num1 + num2;
+//	//输出
+//	printf("%d",sum);
+//	
+//	return 0;
+//}
+
+
+
+//变量的作用域
+//局部变量
+//int main()
+//{
+//	int a = 10;
+//	{
+//		//作用域开始
+//		int b = 20;
+//		printf("a = %d,b = %d\n",a,b);
+//		//变量b只能在该作用域当中使用
+//		//作用域结束
+//	}
+//	printf("a = %d\n",a);
+//	//printf("b = %d\n",b);
+//	//报错，因为变量b作用域已经结束了
+//	return 0;
+//
+//}
+
+////全局变量
+//int a = 5;
+//
+//void test()
+//{
+//	printf("%d\n",a);
+//	//全局变量a可以在该作用域使用
+//}
+//int main()
+//{
+//	printf("%d\n",a);
+//	//全局变量a可以在该作用域使用
+//	test();
+//	return 0;
+//}
+
+//跨文件的全局变量
+//extern int val_global;
+////extern 是专门用来声明外部符号的
+//int main()
+//{
+//	printf("%d\n",val_global);
+//	return 0;
+//}
+
+
+//变量的声明周期
+//局部变量
+//int main()
+//{
+//	int a = 10;
+//	{
+//		//作用域开始，变量b的生命周期开始
+//		int b = 20;
+//		printf("a = %d,b = %d\n", a, b);
+//		//变量b只能在该作用域当中使用
+//		//作用域结束，变量b的生命周期结束
+//	}
+//	printf("a = %d\n",a);
+//	//printf("b = %d\n",b);
+//	//报错，因为变量b 生命周期已经结束了
+//	return 0;
+//}
+
+
+//常量
+
+//int main()
+//{
+//	//1.字面常量
+//	//100;
+//	//3.14;
+//	//字面上的数值不可被修改
+//	//3.14 = 2;
+//
+//	//2.const修饰的常变量
+//	int a = 5;
+//	a = 10;
+//	printf("a = %d\n",a);//输出a = 10
+//	//在这里变量a的数值可以更改原本是5后被改为10
+//	//说明变量a是一个变量
+//	const int num = 8;
+//	//当变量num被const修饰时具有了常量的不可被修改属性
+//	//但是它本质上还是个变量
+//	int arr1[5] = { 0 };
+//	int arr2[num] = { 0 };
+//	return 0;
+//}
+
+
+
+//#define MAX 100
+//int main()
+//{
+//	printf("MAX = %d\n",MAX);//输出为MAX = 100
+//	//MAX = 20;//err   E0137	表达式必须是可修改的左值
+//	//说明MAX是不可被修改的，所以MAX也是常量
+//	int arr[MAX] = { 0 };//未报错
+//	return 0;
+//}
+
+
+////枚举常量 一一列举
+//enum Sex
+//{
+//	MALE,
+//	FEMALE,
+//	SECRET
+//};
+//int main()
+//{
+//	enum Sex s = MALE;
+//	printf("%d\n",MALE);//0
+//	printf("%d\n",FEMALE);//1
+//	printf("%d\n",SECRET);//2
+//
+//	int arr[FEMALE] = {0};//可以正常运行
+//	//MALE = 20;//E0137	表达式必须是可修改的左值
+//	//说明MALE是一个常量不可被修改
+//
+//	return 0;
+//}
+
+
+
+//int main()
+//{
+//	char arr1[] = "abc";//字符串的常用写法
+//	//末尾隐藏了一个\0的转义字符
+//	char arr2[] = {'a','b','c'};
+//	//末尾没有转义字符
+//	char arr3[] = "abc\0def";//遇见\0停止
+//	char arr4[] = { 'a','b','c' ,'\0'};
+//	char arr5[] = { 'a','b','c' ,'\0','d'};//遇见\0停止
+//	
+//	printf("%s\n",arr1);
+//	printf("%s\n",arr2);
+//	printf("%s\n",arr3);
+//	printf("%s\n",arr4);
+//	printf("%s\n",arr5);
+//	printf("%d\n", strlen(arr1));
+//	printf("%d\n", strlen(arr2));
+//	printf("%d\n", strlen(arr3));
+//	printf("%d\n", strlen(arr4));
+//	printf("%d\n", strlen(arr5));
+//	//strlen是一个库函数，计算字符串长度
+//	return 0;
+//}
+
+//Add函数
+//int Add(int x, int y)
+//{
+//	return x + y;
+//}
+//
+//int main()
+//{
+//	int x = 1;
+//	int y = 2;
+//	int sum = Add(1, 2);
+//	//函数的调用，并接收其返回值
+//	printf("%d\n",sum);
+//	return 0;
+//
+//}
+
+
+//数组
+
+//int main()
+//{
+//	//不完全初始化，剩余的数值为0
+//	int arr1[10] = { 0 };
+//	int arr2[10] = { 1,2,3 };
+//	//完全初始化
+//	int arr3[5] = { 1,2,3,4,5 };
+//
+//	//还有一种叫做变长数组（使用变量来指定数组的定义但是不能初始化），c99的语法
+//	//int n = 3;
+//	//int arr4[n];
+//
+//	return 0;
+//}
+
 int main()
 {
-	int local = 2018;//局部变量
-	//下面定义的global会不会有问题？
-	int global = 2020;//局部变量
-	printf("global = %d\n", global);
+	int arr1[5] = {1,2,3,4,5};
+
+	printf("%d\n",arr1[3]);
 	return 0;
 }
-
