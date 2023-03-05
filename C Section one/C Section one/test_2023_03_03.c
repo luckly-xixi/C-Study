@@ -281,10 +281,112 @@
 //	return 0;
 //}
 
+//int main()
+//{
+//	int arr1[5] = {1,2,3,4,5};
+//
+//	printf("%d\n",arr1[3]);
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	printf("%d\n", 8 / 2);
+//	printf("%d\n", 7 / 2);
+////正常情况下，除号的除法运算结果
+////如果是没有小数的时候即为商
+////如果结果是小数的话，结果是取整数部分，不会通过小数来进位
+////也就是说只取整数部分的结果
+//	printf("%lf\n", 7.0 / 2);
+//	printf("%lf\n", 7 / 2.0);
+//	printf("%lf\n", 7.0 / 2.0);
+//	//要使结果为小数，那么需要除号两边至少有一个数据是小数
+//	return 0;
+//}
+
+//int main()
+//{
+//	printf("%d\n", 8 % 2);
+//	printf("%d\n", 7 % 2);
+//	//取余就是取两个数经过除法运算后的余数
+//	return 0;
+//}
+
+//int main()
+//{
+//	//+=
+//	int a = 0;
+//	a = a + 2;
+//	a += 2;
+//	//-=
+//	int b = 0; 
+//	b = b - 2;
+//	b -= 2; 
+//	//*=
+//	int c = 0;
+//	c = c * 2; 
+//	c *= 2;//相当于上面的c = c * 2; 
+//	//......其他的复合操作符类比上面
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int a = 20;int arr1[] = {1,2,3,4,5};
+//	printf("%d\n",sizeof(a));
+//	printf("%d\n",sizeof a);
+//	//sizeof是一个操作符，所以求变量的大小的时候他的括号可以去掉
+//	printf("%d\n",sizeof(int));
+//	//也可以求类型所占空间大小
+//	//printf("%d\n",sizeof int);//语法错误
+//	//但是不能去掉括号
+//	printf("%d\n",sizeof(arr1));
+//	//所求的是数组的总大小
+//	printf("%d\n", sizeof(arr1[0]));
+//	//所求的是数组下标为0的元素的大小
+//	printf("%d\n", sizeof(arr1)/sizeof(arr1[0]));
+//	//求的是数组里面的元素个数
+//	return 0;
+//}
+
+//int main()
+//{
+//	//求俩个数字的最大值
+//	int a = 1;
+//	int b = 2;
+//	//exp1 ? exp2 : exp3
+//	int m = (a > b ? a : b);
+//	//这个操作符的作用就是，exp1的判断是真，那么exp2的结果就是整个表达式的结果
+//	//否则（也就是exp1是假），exp3的结果是整个表达式的结果
+//	printf("%d\n",m);
+//	return 0;
+//}
+//
+//int main()
+//{
+//	int a = 2;
+//	int b = 3;
+//	int c = 0;
+//	int x = (a = b - c, b = c + a, c = a + b, a = a + b + c);
+//	//			a=3			b=3		c=6			a=12
+//	//exp1, exp2, exp3, …expN
+//	//逗号表达式：
+//	//表达式从左到右以此计算，但是最后一个表达式的结果是整个表达式的结果
+//	printf("%d\n",x);
+//	return 0;
+//}
+
+int Add(int x,int y)
+{
+	return x + y;
+}
+
 int main()
 {
-	int arr1[5] = {1,2,3,4,5};
-
-	printf("%d\n",arr1[3]);
+	int arr1[] = {1,2,3,4,5};//这里面的arr1[]的[]就是下标引用操作符
+	printf("%d\n",Add(arr1[0], arr1[2]));//这里面的Add()当中的()就是
+	//函数调用操作符
 	return 0;
 }
