@@ -378,15 +378,66 @@
 //	return 0;
 //}
 
-int Add(int x,int y)
-{
-	return x + y;
-}
+//int Add(int x,int y)
+//{
+//	return x + y;
+//}
+//
+//int main()
+//{
+//	int arr1[] = {1,2,3,4,5};//这里面的arr1[]的[]就是下标引用操作符
+//	printf("%d\n",Add(arr1[0], arr1[2]));//这里面的Add()当中的()就是
+//	//函数调用操作符
+//	return 0;
+//}
 
+
+//typedef unsigned int uint;
+//int main()
+//{
+//	uint a = 9;
+//	//这里的uint就是unsigned int 的简化
+//	//在上方我们给其简化（重命名为uint）
+//	printf("%d\n",a);
+//	
+//	return 0;
+//}
+
+//static修饰局部变量
+//void test()
+//{
+//	//int a = 1;
+//	static int a = 1;
+//	a++;
+//	printf("%d ",a);
+//}
+//int main()
+//{
+//	int i = 0;
+//	while (i < 10)
+//	{
+//		test();
+//		i++;
+//	}
+//	return 0;
+//}
+
+
+//static修饰全局变量
+
+//extern int v_loge ;
+//int main()
+//{
+//	printf("%d\n",v_loge);
+//	return 0;
+//}
+
+//static修饰函数
+extern int Add(int x, int y);
 int main()
 {
-	int arr1[] = {1,2,3,4,5};//这里面的arr1[]的[]就是下标引用操作符
-	printf("%d\n",Add(arr1[0], arr1[2]));//这里面的Add()当中的()就是
-	//函数调用操作符
+	int a = 2;
+	int c = 3;
+	printf("%d\n",Add(a,c));
 	return 0;
 }
