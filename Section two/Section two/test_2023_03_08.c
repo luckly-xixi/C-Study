@@ -141,3 +141,32 @@
 //		printf("这个数为%d\n",a);
 //	return 0;
 //}
+
+
+int main()
+{
+	int a = 0;
+	scanf("%d",&a);
+	switch (a)//括号里面的必须是整形表达式
+	{
+	case 1://case后面跟的必须是整形常量表达式
+		printf("路线一");
+		break;
+	case 2:
+		printf("路线二");
+		break;
+	case 3:
+		printf("路线三");
+		break;
+	case 4:
+		printf("路线四");
+		break;
+	case 5:
+		printf("路线五");
+		break;
+	default:
+		printf("输入错误");
+		break;
+	}
+	return 0;
+}
