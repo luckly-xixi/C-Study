@@ -143,30 +143,98 @@
 //}
 
 
+//int main()
+//{
+//	int a = 0;
+//	scanf("%d",&a);
+//	switch (a)//括号里面的必须是整形表达式
+//	{
+//	case 1://case后面跟的必须是整形常量表达式
+//		printf("路线一");
+//		break;
+//	case 2:
+//		printf("路线二");
+//		break;
+//	case 3:
+//		printf("路线三");
+//		break;
+//	case 4:
+//		printf("路线四");
+//		break;
+//	case 5:
+//		printf("路线五");
+//		break;
+//	default:
+//		printf("输入错误");
+//		break;
+//	}
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int i = 0;
+//	while (i<10)//括号内的是判断的条件
+//	{//即满足括号内的判断就会进入while循环里面执行
+//		//while里面的相关逻辑
+//		printf("%d ",i);
+//		i++;
+//		//如果没有i++那么i恒等于0，一直满足while判断条件
+//		//程序死循环打印0
+//	}
+//
+//	return 0;
+//}
+
+//
+//int main()
+//{
+//	int i = 0;
+//	while (i < 10)
+//	{
+//		printf("%d ", i);
+//		if (5 == i)
+//			//当i==5的时候执行break直接结束循环
+//			break;
+//		i++;
+//	}
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int i = 0;
+//	while (i < 10)
+//	{
+//		i++;
+//		if (5 == i)
+//			//当i==5的时候跳过continue之后的代码逻辑
+//			//直接进入循环的判断入口
+//			continue;
+//		printf("%d ", i);
+//	}
+//	return 0;
+//}
+
+//int main()
+//{
+//	int ch = getchar();
+//	//读取一个字符并将其ASCII码值返回存入变量ch当中
+//	putchar(ch);
+//	//将ch当中的数字转换为ASCII值对应的符号输出
+//	return 0;
+//}
+
+
 int main()
 {
-	int a = 0;
-	scanf("%d",&a);
-	switch (a)//括号里面的必须是整形表达式
-	{
-	case 1://case后面跟的必须是整形常量表达式
-		printf("路线一");
-		break;
-	case 2:
-		printf("路线二");
-		break;
-	case 3:
-		printf("路线三");
-		break;
-	case 4:
-		printf("路线四");
-		break;
-	case 5:
-		printf("路线五");
-		break;
-	default:
-		printf("输入错误");
-		break;
+	int ch = 0;
+	while ((ch = getchar()) != EOF)
+	{//当字符不为EOF，连续读取字符，遇见EOF则停止
+	//通常本段代码会进行输入缓存区的清理
+		;
 	}
 	return 0;
 }
