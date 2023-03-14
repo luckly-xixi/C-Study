@@ -228,13 +228,86 @@
 //}
 
 
+//int main()
+//{
+//	int ch = 0;
+//
+//	//相关逻辑。。。。。
+//
+//	while ((ch = getchar()) != EOF)
+//	{//当字符不为EOF，连续读取字符，遇见EOF则停止
+//	//通常本段代码会进行对输入缓存区的清理
+//		;
+//	}
+//
+//	//相关逻辑。。。。。
+//	return 0;
+//}
+
+//int main()
+//{
+//	char passward[20];
+//	printf("请输入密码：>");
+//	scanf("%s",passward);
+//	//读取输入的密码
+//	printf("请确认密码:>(Y\N)");
+//	//通过输入Y\N来确认
+//	int a = getchar();
+//	if (a == 'Y')         
+//	{      
+//		printf("确认成功！\n");
+//	}
+//	else
+//	{
+//		printf("确认错误！\n");
+//	}
+//	return 0;
+//}
+
+//int main()
+//{
+//	char passward[20];
+//	printf("请输入密码：>");
+//	scanf("%s", passward);
+//	//读取输入的密码
+//	getchar();
+//	//清理缓存区
+//	printf("请确认密码:>(Y\N)");
+//	//通过输入Y\N来确认
+//	int a = getchar();
+//	if (a == 'Y')
+//	{
+//		printf("确认成功！\n");
+//	}
+//	else
+//	{
+//		printf("确认错误！\n");
+//	}
+//	return 0;
+//}
+
 int main()
 {
-	int ch = 0;
-	while ((ch = getchar()) != EOF)
-	{//当字符不为EOF，连续读取字符，遇见EOF则停止
-	//通常本段代码会进行输入缓存区的清理
+	char passward[20];
+	printf("请输入密码：>");
+	scanf("%s", passward);
+	//读取输入的密码
+	while (getchar()!='\n')
+	{
 		;
+	//直接将输入缓冲区回车之前的所有字符读取走
+	}
+	//清理缓存区
+	printf("请确认密码:>(Y\N)");
+	//通过输入Y\N来确认
+	int a = getchar();
+	if (a == 'Y')
+	{
+		printf("确认成功！\n");
+	}
+	else
+	{
+		printf("确认错误！\n");
 	}
 	return 0;
 }
