@@ -12,7 +12,8 @@ int main()
 	scanf("%d",&find);
 	while (left <= right)
 	{
-		int mid = (left + right) / 2;
+		//int mid = (left + right) / 2;
+		int mid = left + (right - left) / 2;//为了防止数据越界，建议使用这种方式
 		//mid必须在循环内部，每次需要更新边界和中间下标
 		if (arr[mid] > find)
 		{
