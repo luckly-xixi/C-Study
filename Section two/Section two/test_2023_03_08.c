@@ -405,14 +405,28 @@
 
 
 //do while循环
+//int main()
+//{
+//	int i = 0;
+//	do
+//	{
+//		i++;
+//		printf("%d\n",i);
+//	} while (i < 10);
+//	
+//	return 0;
+//}
+
+
+//goto语句
 int main()
 {
-	int i = 0;
-	do
-	{
-		i++;
-		printf("%d\n",i);
-	} while (i < 10);
-	
+	printf("第一次打印\n");
+	goto Flag;
+	//通过定义Flag，当代码执行至此
+	//会直接跳转到Falg处，执行Flag之后的代码逻辑
+	printf("第二次打印\n");
+Flag:
+	printf("第三次打印\n");
 	return 0;
 }
