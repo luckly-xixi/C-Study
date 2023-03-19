@@ -30,3 +30,31 @@
 //
 //	return 0;
 //}
+
+//实现密码登录（三次机会）
+//int main()
+//{
+//	int i = 0;
+//	char passward[20];
+//	printf("请输入密码:>");
+//	for (i = 0; i < 3; i++)
+//	{
+//		scanf("%s",passward);
+//		if (strcmp(passward, "giaogiao") == 0)
+//		{
+//			printf("密码正确，登陆成功\n");
+//		}
+//		else
+//		{
+//			printf("密码错误请重新输入\n");
+//			break;
+//		}
+//	}
+//	if (3 == i)
+//	{
+//		printf("三次密码错误，退出程序\n");
+//	}
+//
+//	return 0;
+//}
+
