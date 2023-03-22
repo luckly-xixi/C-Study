@@ -90,3 +90,52 @@
 //	return 0;
 //}
 
+
+//递归
+
+//void Print(int x)
+//{
+//	if (x > 9 )
+//	{//判断条件
+//		Print(x / 10);
+//	}
+//	printf("%d ", x % 10);
+
+//}
+//int main()
+//{
+//	int a = 0;
+//	scanf("%d",&a);
+//	Print(a);//递归函数
+//	return 0;
+//}
+
+
+int main()
+{
+	int a = 0;
+	scanf("%d", &a);//传递1234
+	//Print(a);//递归函数
+	{//第一次调用此时a=1234
+		printf("%d ", a % 10);//输出4
+		a = a / 10;//此时a=123并且传递给Print函数
+		if (a > 9)
+		{//第二次调用此时a=123
+			printf("%d ", a % 10);//输出3
+			a = a / 10;//此时a=12并且传递给Print函数
+			//Print(x / 10);
+				if (a > 9)
+				{//第三次调用此时a=12并且传递给Print函数
+					printf("%d ", a % 10);//输出2
+					a = a / 10;//此时a=1并且传递给Print函数
+					//Print(x / 10);
+					if (a > 9)
+					{//第四次调用此时a=1并且传递给Print函数
+						//Print(a/ 10);因为不满足if的条件	
+					}
+					printf("%d ", a % 10);
+				}
+		}
+	}
+	return 0;
+}
