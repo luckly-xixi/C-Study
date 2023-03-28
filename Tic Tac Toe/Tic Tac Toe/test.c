@@ -29,6 +29,7 @@ void game()
 
 		//电脑移动
 		computer_move(board,ROW,COL);
+
 		ret = is_win(board, ROW, COL);
 		if (ret != 'C')
 		{
@@ -36,17 +37,18 @@ void game()
 		}
 		display_board(board, ROW, COL);
 	}
-	if (ret == 'Q')
+
+	if (ret == 'C')
 	{
-		printf("平均\n");
+		printf("平局！\n");
 	}
-	if (ret == "#")
+	else if (ret == "#")
 	{
-		printf("电脑胜\n");
+		printf("电脑胜！\n");
 	}
-	if (ret == '*')
+	else if (ret == '*')
 	{
-		printf("玩家胜\n");
+		printf("恭喜你，获胜！\n");
 	}
 	display_board(board, ROW, COL);
 
