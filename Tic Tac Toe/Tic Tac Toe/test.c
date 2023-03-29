@@ -3,10 +3,11 @@
 
 #include"sanzi Chess.h"
 
-
+//游戏函数
 void game()
 {
 	char board[ROW][COL] = {0};
+	//将棋子看作数组来存储
 	printf("游戏开始\n");
 
 	//初始化棋盘
@@ -38,11 +39,11 @@ void game()
 		display_board(board, ROW, COL);
 	}
 
-	if (ret == 'C')
+	if (ret == 'Q')
 	{
 		printf("平局！\n");
 	}
-	else if (ret == "#")
+	else if (ret == '#')
 	{
 		printf("电脑胜！\n");
 	}
@@ -67,18 +68,19 @@ void menu()
 }
 
 int main()
-{
+{//主函数
 	int input = 0;
 	srand((unsigned int)time(NULL));
 	do
 	{
-		menu();//菜单函数
+		menu();//打印菜单
 		printf("请选择：>");
 		scanf("%d", &input);
 		switch (input)
 		{
 		case 1:
 			game();
+			//进入游戏实现
 			break;
 		case 0:
 			printf("退出游戏\n");

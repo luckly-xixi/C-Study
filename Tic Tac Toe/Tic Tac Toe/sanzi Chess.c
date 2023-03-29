@@ -132,8 +132,7 @@ char is_win(char board[ROW][COL], int row, int col)
 		return board[1][1];
 	}
 	
-	int ret = is_full(board,ROW,COL);
-	if (1 == ret)
+	if (1 == is_full(board, ROW, COL))
 	{
 		//ÅÐ¶ÏÆ½¾Ö
 		return 'Q';
