@@ -18,22 +18,27 @@ void menu()
 //游戏函数
 void game()
 {
-	char board[ROWS][COLS] = {0};//扫雷棋盘
-	char Main[ROWS][COLS] = {0};//埋雷棋盘
+	char show[ROWS][COLS] = {0};//扫雷棋盘
+	char mine[ROWS][COLS] = {0};//埋雷棋盘
 
 	//初始化棋盘
-	init_board(board,ROWS,COLS,'#');
-	init_board(Main,ROWS,COLS,'0');
+	init_board(show,ROWS,COLS,'#');
+	//将棋盘和行列全部传递过去，同时因为公用一个初始化函数，那么
+	//两个棋盘因为初始化的内容不同，我们将初始化的内容也传递过去
+	init_board(mine,ROWS,COLS,'0');
 
 	//打印棋盘
 	//display(board,ROW,COL);
 	//display(Main,ROW,COL);
 
 	//埋雷
-	set_mine(Main,ROWS,COLS);
-	display(Main, ROW, COL);
+	set_mine(mine,ROW,COL);
+	system("cls");//清空屏幕
+
+
+	display(show, ROW, COL);
 	//找雷
-	find_mine(Main,board,ROW,COL);
+	find_mine(mine,show,ROW,COL);
 
 }
 

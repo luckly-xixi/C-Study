@@ -5,6 +5,7 @@
 #include<stdio.h>
 #include<time.h>
 #include<stdlib.h>
+#include<windows.h>
 
 #define ROW 9
 #define COL 9
@@ -15,13 +16,13 @@
 #define COLS COL+2
 
 //≥ı ºªØ∆Â≈Ã
-void init_board(char board[ROWS][COLS],int row,int col,char x);
+void init_board(char board[ROWS][COLS],int row,int col,char set);
 
 //¥Ú”°∆Â≈Ã
-void display(char board[ROWS][COLS],int row,int col);
+void display(char board[ROW][COL],int row,int col);
 
 //¬Ò¿◊
-void set_mine(char board[ROWS][COLS], int row, int col);
+void set_mine(char board[ROW][COL], int row, int col);
 
 //’“¿◊
-void find_mine(char Main[ROWS][COLS], char board[ROWS][COLS], int row, int col);
+void find_mine(char mine[ROW][COL], char show[ROWS][COLS], int row, int col);
