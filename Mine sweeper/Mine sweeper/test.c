@@ -20,12 +20,11 @@ void game()
 {
 	char show[ROWS][COLS] = {0};//扫雷棋盘
 	char mine[ROWS][COLS] = {0};//埋雷棋盘
-
 	//初始化棋盘
-	init_board(show,ROWS,COLS,'#');
+	init_board(show,ROWS,COLS,'#');//展示函数
 	//将棋盘和行列全部传递过去，同时因为公用一个初始化函数，那么
 	//两个棋盘因为初始化的内容不同，我们将初始化的内容也传递过去
-	init_board(mine,ROWS,COLS,'0');
+	init_board(mine,ROWS,COLS,'0');//隐藏函数
 
 	//打印棋盘
 	//display(board,ROW,COL);
@@ -37,6 +36,7 @@ void game()
 
 
 	display(show, ROW, COL);
+	display(mine, ROW, COL);
 	//找雷
 	find_mine(mine,show,ROW,COL);
 
@@ -64,9 +64,7 @@ int main()
 		default:
 			printf("输入错误，请重新输入\n");
 			break;
-		
 		}
 	} while (input);
-
 	return 0;
 }

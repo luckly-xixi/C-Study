@@ -10,13 +10,14 @@
 #define ROW 9
 #define COL 9
 
-#define EASY_COUNT 80
+#define EASY_COUNT 75
+
 
 #define ROWS ROW+2
 #define COLS COL+2
 
 //≥ı ºªØ∆Â≈Ã
-void init_board(char board[ROWS][COLS],int row,int col,char set);
+void init_board(char board[ROWS][COLS],int rows,int cols,char set);
 
 //¥Ú”°∆Â≈Ã
 void display(char board[ROW][COL],int row,int col);

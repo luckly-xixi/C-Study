@@ -5,13 +5,13 @@
 
 //函数实现
 
-void init_board(char board[ROWS][COLS], int row, int col,char set)
+void init_board(char board[ROWS][COLS], int rows, int cols,char set)
 {
 	int i = 0;
 	int j = 0;
-	for (i = 0; i < row; i++)
+	for (i = 0; i < rows; i++)
 	{
-		for (j = 0; j < col; j++)
+		for (j = 0; j < cols; j++)
 		{
 			board[i][j] = set;//初始化的内容
 		}
@@ -28,11 +28,13 @@ void display(char board[ROW][COL], int row, int col)
 	for (i=0; i<=col; i++)
 	{
 		printf(" %d ",i);
+		if (i > 0)
+			printf(" ");
 	}
 	printf("\n");
 	for (i = 1; i <= row; i++)
 	{
-		printf("%d ", i);//每行开头打印一个行号
+		printf(" %d ", i);//每行开头打印一个行号
 		for (j = 1; j <= col; j++)
 		{
 			printf(" %c ", board[i][j]);
@@ -40,12 +42,13 @@ void display(char board[ROW][COL], int row, int col)
 			if (j<col)
 				printf("|");
 		}
+		printf("\n");
 		if (i<row)
 		{
 			printf("   ");
 			for (j = 1; j <= col; j++)
 			{
-				print("---");
+				printf("---");
 				if (j < col-1)
 					printf("|");
 			}
@@ -85,11 +88,12 @@ return (mine[x-1][y-1]+
 	mine[x][y+1]+
 	mine[x+1][y-1]+
 	mine[x+1][y]+
-	mine[x + 1][y + 1] - 8 * '0');
+	mine[x + 1][y + 1]+
+	mine[x][y]- 9 * '0');
 }
 
 
-void explode_spread(char mine[ROW][COL], char show[ROW][COL], int row,int col,int x,int y,int win)
+void explode_spread(char mine[ROW][COL], char show[ROW][COL], int row,int col,int x,int y,int* win)
 {
 	if (x > 0 && y > 0 && x <= row && y <= col)
 	{//判断坐标合法性
@@ -104,19 +108,16 @@ void explode_spread(char mine[ROW][COL], char show[ROW][COL], int row,int col,in
 				{
 					if ('#' == show[i][j])
 					{//当展示数组垓下标未调用explode_spread函数，限制调用，防止死递归
+						(*win)+=1;
 						explode_spread(mine, show, ROW, COL, i, j,win);
-						win++;
 					}
 				}
 			}
-
 		}
 		else
 		{//如果附近有，就显示地雷数量信息
 			show[x][y] = get_mine_count(mine, x, y) + '0';
 		}
-
-
 	}
 }
 
@@ -157,7 +158,7 @@ void find_mine(char mine[ROW][COL], char show[ROWS][COLS], int row, int col)
 			else//没有踩到雷
 			{
 				//炸金花式展开
-				explode_spread(mine, show, row, col, x, y,win);
+				explode_spread(mine, show, row, col, x, y,&win);
 				system("cls");
 				//打印棋盘
 				display(show, ROW, COL);
@@ -188,3 +189,4 @@ void find_mine(char mine[ROW][COL], char show[ROWS][COLS], int row, int col)
 
 }
 
+ 
