@@ -152,12 +152,110 @@
 //	return 0;
 //}
 
+//int main()
+//{
+//	int a = 5;
+//	int b = 2;
+//	printf("%zu\n",sizeof(a = b + 4));
+//	//如果sizeof当中的表达式语句进行计算了，那么变量a的数值应该是6
+//	printf("%d\n",a);
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int a = 10;
+//	//00000000000000000000000000001010
+//	int n = 0;
+//	scanf("%d",&n);
+//	//把a的二进制位第n位置为1
+//	a = a | (1 << (n - 1));
+//	printf("a = %d\n",a);
+//	//把a的二进制位第n位置为0
+//	scanf("%d",&n);
+//	a = a & ~(1 << (n - 1));
+//	printf("a = %d\n", a);
+//	return 0;
+//}
+
+//int main()
+//{
+//	int i = 0, a = 0, b = 2, c = 3, d = 4;
+//	i = a++ && ++b && d++;
+//	//对于逻辑与，是并且的意思，就是操作符的（从左到右）左右两边的操作数都为真，才生效
+//	//但凡遇见假的就直接停止，并且后方（右边）的表达式或者操作数直接不关注（不执行）
+//	printf("a = %d\n b = %d\n c = %d\nd = %d\n", a, b, c, d);
+//	printf("i = %d\n",i);
+//	//而逻辑操作符无论操作数为多少，只关注真（非0）假（0），执行完毕，返回真假，也就是0或者1
+//	return 0;
+//}
+
+//int main()
+//{
+//	int i = 0, a = 0, b = 2, c = 3, d = 4;
+//	i = a++||++b||d++;
+//	//逻辑或是或者的意思，是操作符左右两边的操作数只要有一个为真，直接生效
+//	//当即返回真
+//	printf("a = %d\n b = %d\n c = %d\nd = %d\n", a, b, c, d);
+//	printf("i = %d\n", i);
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int a = 6;
+//	int b = 0;
+//	b = (a > 5) ? 3 : -3;
+//	//相当于是下方逻辑
+//	//if (a > 5)
+//	//	b = 3;
+//	//else
+//	//	b = -3;
+//	printf("b = %d\n",b);
+//	return 0;
+//}
+
+//int main()
+//{
+//	int a = 1;
+//	int b = 2;
+//	int c = (a > b, a = b + 10, a, b = a + 1);//逗号表达式
+//	printf("c = %d\n",c);
+//}
+
+//int main()
+//{
+//	int a = get_val();
+//	count_val(a);
+//	while (a = get_val(), count_val(a), a > 0)
+//	{
+//		//业务处理
+//	}
+//	//while (a > 0)
+//	//{//业务处理
+//	//	a = get_val();
+//	//	count_val(a);
+//	//}
+//	return 0;
+//}
+
+struct Handsome
+{
+	char name[20];
+	int age;
+};
+
 int main()
 {
-	int a = 5;
-	int b = 2;
-	printf("%zu\n",sizeof(a = b + 4));
-	//如果sizeof当中的表达式语句进行计算了，那么变量a的数值应该是6
-	printf("%d\n",a);
+	struct Handsome boy = {"西西",18};
+	printf("%s %d\n",boy.name,boy.age);
+	//通过 . 来访问结构体中的成员，用法：结构体名 . 成员变量
+	struct Handsome* ps = &boy;//结构体指针
+	printf("%s %d\n",(*ps).name, (*ps).age);
+	//此处通过解引用操作符来将结构体指针转化为结构体，(*ps)当中的括号不能去掉
+	printf("%s %d\n",ps->name,ps->age);
+	//这里用指针配合->来访问成员，用法：结构体指针 -> 成员变量
 	return 0;
 }
