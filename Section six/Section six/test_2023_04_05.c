@@ -82,32 +82,34 @@
 //}
 
 //一维数组模拟二维数组
-int main()
-{
-	int* arr1[3] = { 1,1,1};
-	int* arr2[3] = { 3,3,3};
-	int* arr3[3] = { 5,5,5};
-	int* arr4[3] = { arr1,arr2,arr3 };
-	//创建整形指针数组，并存放值
-	int i = 0;
-	for (i = 0; i < 3; i++)
-	{
-		int j = 0;
-		for (j = 0; j < 3; j++)
-		{
-			printf("%d ", *((*arr4+i)+j));
-		}
-	}
-	 
-	//int i = 0;
-	//for (i = 0; i < 3; i++)
-	//{
-	//	int j = 0;
-	//	for (j = 0; j < 3; j++)
-	//	{
-	//		printf("%d ",arr4[i][j]);//arr4[i][j]相当于是*((*arr4+i)+j)
-	//	}
-	//}
+//int main()
+//{
+//	int* arr1[3] = { 1,1,1};
+//	int* arr2[3] = { 3,3,3};
+//	int* arr3[3] = { 5,5,5};
+//	int* arr4[3] = { arr1,arr2,arr3 };
+//	//创建整形指针数组，并存放值
+//	int i = 0;
+//	for (i = 0; i < 3; i++)
+//	{
+//		int j = 0;
+//		for (j = 0; j < 3; j++)
+//		{
+//			printf("%d ", *((*arr4+i)+j));
+//		}
+//	}
+//	 
+//	//int i = 0;
+//	//for (i = 0; i < 3; i++)
+//	//{
+//	//	int j = 0;
+//	//	for (j = 0; j < 3; j++)
+//	//	{
+//	//		printf("%d ",arr4[i][j]);//arr4[i][j]相当于是*((*arr4+i)+j)
+//	//	}
+//	//}
+//
+//	return 0;
+//}
 
-	return 0;
-}
+
