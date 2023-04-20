@@ -1,5 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
 
 //交换两个变量（不创建临时变量）
 
@@ -297,3 +299,168 @@
 //                //即转变为求我走1阶剩余台阶的走法+走2阶时剩余台阶的走法，即可递推到走最后一步的走法有多少种
 //    return n <= 2 ? n : fib(n - 1) + fib(n - 2);
 //}
+
+
+
+//KiKi想获得某年某月有多少天
+//请帮他编程实现。输入年份和月份
+//计算这一年这个月有多少天。
+//int main() {
+//    int year, month;
+//    int arr1[13] = { 0,31,29,31,30,31,30,31,31,30,31,30,31 };
+//    int arr2[31] = { 0,31,28,31,30,31,30,31,31,30,31,30,31 };
+//    while (~scanf("%d %d", &year, &month))
+//    {
+//        if (((year % 100) != 0 && (year % 4) == 0) || (year % 400) == 0)
+//        {
+//            printf("%d\n", arr1[month]);
+//        }
+//        else
+//        {
+//            printf("%d\n", arr2[month]);
+//        }
+//    }
+//    return 0;
+//}
+
+
+//KiKi想判断输入的字符是不是字母，请帮他编程实现。
+
+//int main() {
+//    char ch;
+//    while (~scanf("%c", &ch))
+//    {
+//        if (((ch >= 'A') && (ch <= 'Z')) || ((ch >= 'a') && (ch <= 'z')))
+//        {
+//            printf("%c is an alphabet.\n", ch);
+//        }
+//        else
+//        {
+//            printf("%c is not an alphabet.\n", ch);
+//        }
+//        while (getchar() != '\n') {}//清理输入缓冲区
+//    }
+//    return 0;
+//}
+
+
+
+
+
+//KiKi想完成字母大小写转换，有一个字符
+//判断它是否为大写字母
+//如果是，将它转换成小写字母；反之则转换为大写字母
+
+//int main() {
+//    char ch;
+//    while (scanf("%c", &ch) != EOF)
+//    {
+//        if ((ch >= 65) && (ch <= 90))
+//        {
+//            printf("%c\n", ch + 32);
+//        }
+//        else
+//        {
+//            printf("%c\n", ch - 32);
+//        }
+//        while (getchar() != '\n') {}
+//    }
+//    return 0;
+//}
+
+
+//
+//KiKi非常喜欢网购，在一家店铺他看中了一件衣服，他了解到，如果今天是“双11”（11月11日）则这件衣服打7折
+//“双12” （12月12日）则这件衣服打8折，如果有优惠券可以额外减50元（优惠券只能在双11或双12使用）
+//求KiKi最终所花的钱数。
+// （有优惠券用1表示，无优惠券用0表示）。 注：输入日期保证只有“双11”和“双12”。
+//int main() {
+//    double price;
+//    int month, day, flag;
+//    while (~scanf("%lf %d %d %d", &price, &month, &day, &flag))
+//    {
+//        if (month == 11 && day == 11)
+//        {
+//            price = price * 0.7 - 50.0 * flag;
+//        }
+//        else if (month == 12 && day == 12)
+//        {
+//            price = price * 0.8 - 50 * flag;
+//        }
+//        if (price < 0)
+//        {
+//            printf("0.00\n");
+//        }
+//        else
+//        {
+//            printf("%.2lf\n", price);
+//        }
+//    }
+//    return 0;
+//}
+
+//写一个函数打印arr数组的内容，不使用数组下标，使用指针。
+//
+//arr是一个整形一维数组。
+
+//int main()
+//{
+//	int arr[] = { 1,2,3,4 };
+//	int i = 0;
+//	int ret;
+//	for (i = 0; i < (sizeof(arr)/sizeof(arr[0])); i++)
+//	{
+//		printf("%d ",*(arr+i));
+//	}
+//	return 0;
+//}
+
+//输出菱形
+
+int main()
+{
+	int i = 0;
+	int j = 0;
+	int n = 0;
+	scanf("%d", &n);
+	//上半部分
+	for (i = 1; i <= n; i++)
+	{
+		//输出空格
+		for (j=1; j<n-i; j++)
+		{
+			printf(" ");
+		}
+		//输出*
+		for (j = 0; j <(2*i)-1 ; j++)
+		{
+			printf("*");
+		}
+		for (j = 1; j < n - i; j++)
+		{
+			printf(" ");
+		}
+		printf("\n");
+	}
+	////下半部分
+	//for (i = n-1; i >= 1; i--)
+	//{
+	//	//输出空格
+	//	for (j = 1; j <= i; j++)
+	//	{
+	//		printf(" ");
+	//	}
+	//	//输出*
+	//	for (j = (2 * i) - 1; j >= 1; j--)
+	//	{
+	//		printf("*");
+	//	}
+	//	for (j = 1; j < n; j++)
+	//	{
+	//		printf(" ");
+	//	}
+	//	printf("\n");
+	//}
+
+	return 0;
+}
