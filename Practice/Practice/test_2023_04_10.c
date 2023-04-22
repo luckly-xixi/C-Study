@@ -421,46 +421,46 @@
 //{
 //	int i = 0;
 //	int j = 0;
-//	int n = 0;
-//	scanf("%d", &n);
+//	//scanf("%d", &n);
+//	int n = 7;
 //	//上半部分
-//	for (i = 1; i <= n; i++)
+//	for (i = 1; i <= n; i++)//控制行
 //	{
-//		//输出空格
-//		for (j=1; j<n-i; j++)
+//		//输出每行的空格
+//		for (j=1; j<=n-i; j++)
 //		{
 //			printf(" ");
 //		}
 //		//输出*
-//		for (j = 0; j <(2*i)-1 ; j++)
+//		for (j = 1; j <= (2*i)-1; j++)
 //		{
 //			printf("*");
 //		}
-//		for (j = 1; j < n - i; j++)
+//		for (j = 1; j <=n - i; j++)
 //		{
 //			printf(" ");
 //		}
-//		printf("\n");
+//		printf("\n");//换行
 //	}
-//	////下半部分
-//	//for (i = n-1; i >= 1; i--)
-//	//{
-//	//	//输出空格
-//	//	for (j = 1; j <= i; j++)
-//	//	{
-//	//		printf(" ");
-//	//	}
-//	//	//输出*
-//	//	for (j = (2 * i) - 1; j >= 1; j--)
-//	//	{
-//	//		printf("*");
-//	//	}
-//	//	for (j = 1; j < n; j++)
-//	//	{
-//	//		printf(" ");
-//	//	}
-//	//	printf("\n");
-//	//}
+//	//下半部分
+//	for (i = n-1; i >= 1; i--)
+//	{
+//		//输出空格
+//		for (j = 1; j <= n-i; j++)
+//		{
+//			printf(" ");
+//		}
+//		//输出*
+//		for (j = (2 * i) - 1; j >= 1; j--)
+//		{
+//			printf("*");
+//		}
+//		for (j = 1; j <= n - i; j++)
+//		{
+//			printf(" ");
+//		}
+//		printf("\n");//换行
+//	}
 //
 //	return 0;
 //}
@@ -485,3 +485,49 @@
 //    }
 //    return 0;
 //}
+
+
+//双指针
+// int main()
+// {
+//     char str[10001] = {0};
+//    // gets(str);//库函数输入遇见空格仍然继续读取
+//     scanf("%[^\n]",str);//更改scanf的输入格式，可以达到gets相同效果
+//     int left = 0;
+//     int right = strlen(str)-1;
+//     while (left < right) 
+//     {
+//     char tmp = str[left];
+//     str[left] = str[right];
+//     str[right] = tmp;
+//     left++;
+//     right--;
+//     }
+//     printf("%s\n",str);
+//     return 0;
+// }
+
+
+//递归
+// void Reverse(char* pt [])
+// {
+//  if((*pt)=='\n')
+//  {
+//     return;    
+//  }
+//  Reverse(pt+1);
+//  printf("%c",*pt);
+// }
+
+// int main()
+// {
+//     char str[10001] = {0};
+//     gets(str);
+//     // scanf("%[^\n]",str);
+//     int len = strlen(str);
+//     Reverse(str);
+//     return 0;
+// }
+
+
+
