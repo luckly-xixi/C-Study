@@ -2,6 +2,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+#include<math.h>
 
 //交换两个变量（不创建临时变量）
 
@@ -530,30 +531,102 @@
 // }
 
 
-//求出0～100000之间的所有“水仙花数”并输出。
-//“水仙花数”是指一个n位数，其各位数字的n次方之和确好等于该数本身
-//如 : 153＝1 ^ 3＋5 ^ 3＋3 ^ 3，则153是一个“水仙花数”。
+//求出0～100000之间的所有自幂数并输出。
+//自幂数是指一个n位数，其各位数字的n次方之和确好等于该数本身
+//如 : 153＝1 ^ 3＋5 ^ 3＋3 ^ 3，则153是一个自幂数。
+//
+//int is_Narcissistic(int i)
+//{
+//	int num = 1;
+//	//位数从1开始，一个数至少是一位数
+//	int tmp = i;
+//	while (tmp/=10)
+//	{//求i的位数
+//		num++;
+//	}
+//	tmp = i;
+//
+//	int sum = 0;
+//	while (tmp)
+//	{
+//		int n = num;
+//		int a = tmp % 10;
+//		int num1 = 1;
+//		while (n--)
+//		{//求和
+//			num1 *= a;
+//		}
+//		sum += num1;
+//		tmp /= 10;
+//	}
+//	if (i == sum)
+//	{
+//		return 1;
+//	}
+//	return 0;
+//}
+//int main()
+//{
+//	int i = 0;
+//	for (i = 0; i <= 100000; i++)
+//	{//产生1~100000的数字
+//		//判断是否是水仙花数
+//		if (is_Narcissistic(i))
+//		{
+//			printf("%d ",i);
+//		}
+//	}
+//	return 0;
+//}
 
+//int main()
+//{
+//	int i = 0;
+//	for (i=0; i<=100000; i++)
+//	{
+//		int n = 1;//一个数最少是1位数
+//		int tmp = i;
+//		int sum = 0;
+//		while (tmp/=10)
+//		{//求i的位数
+//			n++;
+//		}
+//		tmp = i;
+//		while (tmp)
+//		{
+//			sum += pow(tmp%10,n);
+//			//pow是库函数求次方
+//			tmp /= 10;
+//		}
+//		if (i == sum)
+//		{
+//			printf("%d ",i);
+//		}
+//	}
+//
+//	return 0;
+//}
+
+
+
+
+//
+//求Sn = a + aa + aaa + aaaa + aaaaa的前5项之和，其中a是一个数字，
+//例如：2 + 22 + 222 + 2222 + 22222
 
 int main()
 {
-	int x = 0;
+	int a = 0;
+	int n = 0;
+	scanf("%d %d",&a,&n);
 	int i = 0;
 	int sum = 0;
-	int tmp = 0;
-	for (i = 0; i <= 100000; i++)
+	int sn = 0;
+	for (i=0; i<n; i++)
 	{
-		sum = 0;
-		while (i)
-		{
-			tmp = i % 10;
-			sum += (tmp * tmp * tmp);
-			i /= 10;
-		}
-		if (i == sum)
-		{
-			printf("%d  ",i);
-		}
+		sum = sum * 10 + a;
+		sn += sum;
 	}
+	printf("%d\n",sum);
 	return 0;
 }
