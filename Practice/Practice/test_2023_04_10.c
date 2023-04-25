@@ -614,19 +614,143 @@
 //求Sn = a + aa + aaa + aaaa + aaaaa的前5项之和，其中a是一个数字，
 //例如：2 + 22 + 222 + 2222 + 22222
 
+//int main()
+//{
+//	int a = 0;
+//	int n = 0;
+//	scanf("%d %d",&a,&n);
+//	int i = 0;
+//	int sum = 0;
+//	int sn = 0;
+//	for (i=0; i<n; i++)
+//	{
+//		sum = sum * 10 + a;
+//		sn += sum;
+//	}
+//	printf("%d\n",sum);
+//	return 0;
+//}
+
+
+
+//喝汽水，1瓶汽水1元，2个空瓶可以换一瓶汽水，给20元，可以多少汽水（编程实现）。
+//int main()
+//{//错误代码，sum的初始值，因为刚开始没加上去，会导致代码问题
+//	int drink = 15;
+//	int bottle = drink;
+//	int sum = 0;
+//	while(bottle >= 2)
+//	{
+//		sum += drink;
+//		drink = bottle / 2;
+//		bottle = drink + bottle % 2;
+//		/*sum += bottle / 2;
+//		bottle = bottle / 2 + bottle % 2;*/
+//	}
+//	//sum += 1;//在上面的循环中，当瓶子变为1的时候，最后一瓶饮料因为循环没有加上去
+//	printf("%d ",sum);
+//	return 0;
+//}
+
+//改进
+//int main()
+//{
+//	int drink = 35;
+//	int bottle = drink;
+//	int sum = 0;
+//	while ((bottle >= 2)||(drink >= 1))
+//	{
+//		sum += drink;
+//		drink = bottle / 2;
+//		bottle = drink + bottle % 2;
+//	}
+//	printf("%d ", sum);
+//	return 0;
+//}
+
+
+//int main()
+//{
+//	int total = 0;//总共多少瓶汽水
+//	int empty = 0;//空瓶子数
+//	int money = 0;//钱数
+//	scanf("%d",&money);
+//	total = money;
+//	empty = money;
+//	while (empty >= 2)
+//	{
+//		total += empty / 2;
+//		empty = empty / 2 + empty % 2;
+//	}
+//	return 0;
+//}
+
+//
+//变种水仙花数 - Lily Number：把任意的数字，从中间拆分成两个数字
+//比如1461 可以拆分成（1和461）, （14和61）, （146和1),
+//如果所有拆分后的乘积之和等于自身，则是一个Lily Number。
+//例如：
+//655 = 6 * 55 + 65 * 5
+//1461 = 1 * 461 + 14 * 61 + 146 * 1
+//求出 5位数中的所有 Lily Number。
+
+
+//int main() {
+//    int i = 0;
+//    int sum = 0;
+//    for (i = 10000; i < 99999; i++)
+//    {
+//        sum = ((i / 10000) * (i % 10000)) + ((i / 1000) * (i % 1000)) + ((i / 100) * (i % 100)) + ((i / 10) * (i % 10));
+//        if (sum == i)
+//            printf("%d ", i);
+//    }
+//    return 0;
+//}
+
+//代码出现死循环的原因
+//int main()
+//{
+//    int i = 0;
+//    int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
+//    for (i = 0; i <= 12; i++)
+//    {
+//        arr[i] = 0;
+//        printf("hello \n");
+//    }
+//    //在vs的中编译器习惯于地址从高到低使用并且存放变量
+//    //变量 i 先于arr数组创建，所以 i 的地址比arr数组的地址大
+//    // 变量 i 和数组arr之间相隔两个int变量大小
+//    //数组arr又是在内存当中由低到高连续存放的
+//    //于是在越界访问的时候访问到了变量 i 将其改为了0，导致for循环出现死循环情况
+//    return 0;
+//}
+
+
+
+
+//题目：
+//输入一个整数数组，实现一个函数，
+//来调整该数组中数字的顺序使得数组中所有的奇数位于数组的前半部分，
+//所有偶数位于数组的后半部分。
 int main()
 {
-	int a = 0;
-	int n = 0;
-	scanf("%d %d",&a,&n);
-	int i = 0;
-	int sum = 0;
-	int sn = 0;
-	for (i=0; i<n; i++)
+	int arr[] = { 2,5,4,3,7,6,8,1,9 };
+	int left = 0;
+	int right = sizeof(arr) / sizeof(arr[0]);
+	while (left>right)
 	{
-		sum = sum * 10 + a;
-		sn += sum;
+		while (0 != (arr[left] % 2)&&(left<right))
+			left++;
+		while (0 == (arr[right-1] % 2) && (left < right))
+			right--;
+		int tmp = 0;
+		tmp = left;
+		left = right;
+		right = tmp;
 	}
-	printf("%d\n",sum);
+	for (int i = 0; i < right; i++)
+	{
+		printf("%d ",arr[i]);
+	}
 	return 0;
 }
