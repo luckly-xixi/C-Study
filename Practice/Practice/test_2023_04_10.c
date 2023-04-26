@@ -3,6 +3,7 @@
 #include<stdlib.h>
 #include<string.h>
 #include<math.h>
+#include<assert.h>
 
 //交换两个变量（不创建临时变量）
 
@@ -732,25 +733,156 @@
 //输入一个整数数组，实现一个函数，
 //来调整该数组中数字的顺序使得数组中所有的奇数位于数组的前半部分，
 //所有偶数位于数组的后半部分。
-int main()
-{
-	int arr[] = { 2,5,4,3,7,6,8,1,9 };
-	int left = 0;
-	int right = sizeof(arr) / sizeof(arr[0]);
-	while (left>right)
-	{
-		while (0 != (arr[left] % 2)&&(left<right))
-			left++;
-		while (0 == (arr[right-1] % 2) && (left < right))
-			right--;
-		int tmp = 0;
-		tmp = left;
-		left = right;
-		right = tmp;
-	}
-	for (int i = 0; i < right; i++)
-	{
-		printf("%d ",arr[i]);
-	}
-	return 0;
-}
+//int main()
+//{
+//	int arr[] = { 2,5,4,3,7,6,8,1 };
+//	int left = 0;
+//	int right = sizeof(arr) / sizeof(arr[0])-1;
+//	while (left<right)
+//	{
+//		while (0 != (arr[left] % 2))
+//		{
+//			left++;
+//		}
+//		while (0 == (arr[right] % 2))
+//		{
+//			right--;
+//		}
+//		int tmp = 0;
+//		tmp = arr[left];
+//		arr[left] = arr[right];
+//		arr[right] = tmp;
+//		left++;
+//		right--;
+//	}
+//	//打印数组
+//	for (int i = 0; i <= (sizeof(arr) / sizeof(arr[0])) - 1; i++ )
+//	{
+//		printf("%d ",arr[i]);
+//	}
+//	return 0;
+//}
+
+
+
+//模拟实现库函数strcpy
+
+//char* my_strcpy(char* dest, const char* src)
+//{
+//	assert(dest&&src);
+//	char* ret = dest;//这里要记录一下目标地址，因为之后要返回
+//	while (*dest++ = *src++)
+//	{
+//		;
+//	}
+//	/*while (*src != '\0')
+//	{
+//		*dest = *src;
+//		dest++;
+//		src++;
+//	}
+//	*dest = *src;*/
+//	return ret;
+//}
+//
+//int main()
+//{
+//	char arr1[20] = "sssss";
+//	char arr2[] = "abuc";
+//	printf("%s\n", my_strcpy(arr1, arr2));
+//	printf("%s\n", strcpy(arr1, arr2));
+//	return 0;
+//}
+
+
+
+
+//模拟实现库函数strlen
+
+//int my_strlen(const char* str)
+//{
+//	assert(str);
+//	int sum = 0;
+//	while (*str++)
+//	{
+//		sum++;
+//	}
+//	return sum;
+//}
+//int main()
+//{
+//	char arr[] = "abcd\0efad";
+//	printf("%d\n",strlen(arr));
+//	printf("%d\n",my_strlen(arr));
+//	return 0;
+//}
+
+
+//输入n个成绩，换行输出n个成绩中最高分数和最低分数的差。
+//两行，第一行为n，表示n个成绩，不会大于10000。
+//第二行为n个成绩（整数表示，范围0~100），以空格隔开。
+//int main()
+//{
+//    int min = 100;
+//    int max = 0;
+//    int n = 0;
+//    int a = 0;
+//    int ch = 0;
+//    scanf("%d", &n);
+//    for (int i = 0; i < n; i++)
+//    {
+//        scanf("%d", &a);
+//        if (a < min)
+//            min = a;
+//        if (a > max)
+//            max = a;
+//    }
+//    printf("%d", max - min);
+//    return 0;
+//}
+
+//输入一个整数序列，判断是否是有序序列，有序，指序列中的整数从小到大排序或者从大到小排序(相同元素也视为有序)。
+//数据范围：3≤n≤50  序列中的值都满足1≤val≤100
+//第一行输入一个整数N(3≤N≤50)。
+////第二行输入N个整数，用空格分隔N个整数输出为一行，如果序列有序输出sorted，否则输出unsorted。
+
+//int main()
+//{
+//    int a[55], n, flag1 = 0, flag2 = 0, i;
+//    scanf("%d", &n);
+//    for (i = 0; i < n; i++) {
+//        scanf("%d", &a[i]);
+//        if (i > 0) {
+//            if (a[i] < a[i - 1]) {
+//                flag1 = 1;
+//            }
+//            else if (a[i] > a[i - 1]) {
+//                flag2 = 1;
+//            }
+//        }
+//    }
+//    if (flag1 && flag2) printf("unsorted\n");//只有当flag1和flag2都为1的时候序列无序
+//    else printf("sorted\n");
+//}
+
+
+//int main()
+//{
+//    int i, arr[100], n, cnt1 = 0, cnt2 = 0;
+//    scanf("%d", &n);
+//    for (i = 0; i < n; i++)
+//    {
+//        scanf("%d", &arr[i]);
+//    }
+//    for (i = 0; i < n - 1; i++)
+//    {
+//        if (arr[i] - arr[i + 1] >= 0)
+//            cnt1++;//降序计数
+//        else if (arr[i] - arr[i + 1] <= 0)
+//            cnt2++;//升序计数
+//    }
+//    if (cnt1 == n - 1 || cnt2 == n - 1)//一共n个数，两两相减的到n-1个结果
+//        printf("sorted");
+//    else
+//        printf("unsorted");
+//}
