@@ -886,3 +886,45 @@
 //    else
 //        printf("unsorted");
 //}
+
+
+
+int main() {
+    int n = 0;
+    int i = 0;
+    while (~scanf("%d", &n)) {
+        //上半部分
+        for (i = 0; i <= n; i++)
+        {
+            int j = 0;
+            //打印空格
+            for (j = 0; j < n - i; j++)
+            {
+                printf("  ");
+            }
+            //打印*
+            for (j = 0; j <= i; j++)
+            {
+                printf("*");
+            }
+            printf("\n");
+        }
+        //下半部分
+        for (i = 0; i < n; i++)
+        {
+            int j = 0;
+            //打印空格
+            for (j = 0; j <= i; j++)
+            {
+                printf("  ");
+            }
+            //打印*
+            for (j = 0; j < n - i; j++)
+            {
+                printf("*");
+            }
+            printf("\n");
+        }
+    }
+    return 0;
+}
