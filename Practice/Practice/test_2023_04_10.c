@@ -889,42 +889,202 @@
 
 
 
-int main() {
-    int n = 0;
-    int i = 0;
-    while (~scanf("%d", &n)) {
-        //上半部分
-        for (i = 0; i <= n; i++)
-        {
-            int j = 0;
-            //打印空格
-            for (j = 0; j < n - i; j++)
-            {
-                printf("  ");
-            }
-            //打印*
-            for (j = 0; j <= i; j++)
-            {
-                printf("*");
-            }
-            printf("\n");
-        }
-        //下半部分
-        for (i = 0; i < n; i++)
-        {
-            int j = 0;
-            //打印空格
-            for (j = 0; j <= i; j++)
-            {
-                printf("  ");
-            }
-            //打印*
-            for (j = 0; j < n - i; j++)
-            {
-                printf("*");
-            }
-            printf("\n");
-        }
-    }
-    return 0;
-}
+//打印箭型图案
+//输入：2
+//输出
+//    *
+//  **
+//***
+//  **
+//    *
+//int main() {
+//    int n = 0;
+//    int i = 0;
+//    while (~scanf("%d", &n)) {
+//        //上半部分
+//        for (i = 0; i <= n; i++)
+//        {
+//            int j = 0;
+//            //打印空格
+//            for (j = 0; j < n - i; j++)
+//            {
+//                printf("  ");
+//            }
+//            //打印*
+//            for (j = 0; j <= i; j++)
+//            {
+//                printf("*");
+//            }
+//            printf("\n");
+//        }
+//        //下半部分
+//        for (i = 0; i < n; i++)
+//        {
+//            int j = 0;
+//            //打印空格
+//            for (j = 0; j <= i; j++)
+//            {
+//                printf("  ");
+//            }
+//            //打印*
+//            for (j = 0; j < n - i; j++)
+//            {
+//                printf("*");
+//            }
+//            printf("\n");
+//        }
+//    }
+//    return 0;
+//}
+
+
+//合并有序数列
+
+
+//解法一：
+//int main()
+//{
+//    int n = 0;
+//    int m = 0;
+//    int arr1[1000] = { 0 };
+//    int arr2[1000] = { 0 };
+//    //输入n和m
+//    scanf("%d %d", &n, &m);
+//    int i = 0;
+//    int j = 0;
+//    //输入两个升序序列
+//    for (i = 0; i < n; i++)
+//    {
+//        scanf("%d", &arr1[i]);
+//    }
+//    for (i = 0; i < m; i++)
+//    {
+//        scanf("%d", &arr2[i]);
+//    }
+//    //合并有序序列并输出
+//    i = 0; j = 0;
+//    while (i < n && j < m)
+//    {
+//        if (arr1[i] < arr2[j])
+//        {
+//            printf("%d ", arr1[i]);
+//            i++;
+//        }
+//        else
+//        {
+//            printf("%d ", arr2[j]);
+//            j++;
+//        }
+//    }
+//
+//    //判断尚未遍历完的数组是否需要打印输出
+//    if (i == n && j < m)
+//        for (; j < m; j++)
+//            printf("%d ", arr2[j]);
+//    else
+//        for (; i < n; i++)
+//            printf("%d ", arr1[i]);
+//    return 0;
+//}
+//
+
+
+
+//解法二：
+//int main()
+//{
+//    int n, m;
+//    scanf("%d %d\n", &n, &m);
+//    int i, j, arr[2000];
+//    int tmp;
+//    for (i = 0; i < n; i++)
+//    {
+//        scanf("%d ", &arr[i]);
+//    }
+//    for (i = n; i < n + m; i++)
+//    {
+//        scanf("%d ", &arr[i]);
+//    }
+//    for (i = 0; i < n + m; i++)
+//    {
+//        for (j = 0; j < n + m - i - 1; j++)
+//        {
+//            if (arr[j] > arr[j + 1])
+//            {
+//                tmp = arr[j];
+//                arr[j] = arr[j + 1];
+//                arr[j + 1] = tmp;
+//            }
+//        }
+//    }
+//    for (i = 0; i < n + m; i++)
+//    {
+//        printf("%d ", arr[i]);
+//    }
+//}
+
+//解法三:
+
+
+//#include<stdio.h>
+//#include<stdlib.h>
+////利用输出特性，或新建第三个数组存放数据，原理相同
+//int main() {
+//    int* arr1;//数组
+//    int* arr2;
+//    int m = 0, n = 0;//个数
+//    int i = 0;
+//    int f1 = 0, f2 = 0;//浮标
+//    scanf("%d %d", &m, &n);
+//    arr1 = (int*)malloc(sizeof(int) * (m + 1));//根据n的大小来规定数组的大小
+//    arr2 = (int*)malloc(sizeof(int) * (n + 1));
+//    for (i = 0; i < m; i++) {//输入数组
+//        scanf("%d", &arr1[i]);
+//    }
+//    for (i = 0; i < n; i++) {//输入数组
+//        scanf("%d", &arr2[i]);
+//    }
+//    i = 0;
+//    while (i < (m + n)) {
+//        if (f1 == m) {//第一个数组遍历完结，第二个还未完时
+//    //这里可以不加"&&（f2<n)",若判断到f1==m时，f2必然是小于等于n的；
+//    //这是由i控制的，i最大到n+m就决定了自增不会超过这个数即打印不会越界
+//            printf("%d ", arr2[f2++]);//接着打印第二个数组剩余数
+//        }
+//        else if (f2 == n) {//同上
+//            printf("%d ", arr1[f1++]);
+//        }
+//        else if (arr1[f1] >= arr2[f2]) {//打印小的数或相同数
+//            printf("%d ", arr2[f2++]);
+//        }
+//        else if (arr1[f1] <= arr2[f2]) {
+//            printf("%d ", arr1[f1++]);
+//        }
+//        i++;
+//    }
+//    return 0;
+//}
+
+
+
+//打印x型图案
+//int main()
+//{
+//    int n = 0;
+//    while (~scanf("%d", &n))
+//    {
+//        for (int i = 0; i < n; i++)  //外循环为行
+//        {
+//            for (int j = 0; j < n; j++) //内循环为列
+//            {
+//                if (i == j || i + j == n - 1)
+//                    //最关键的地方，正斜线为[i][i]处是*， 反斜杠为[i][n-1-j]处是*，一行打印1个或2个*
+//                    printf("*");
+//                else
+//                    printf(" ");
+//            }
+//            printf("\n"); //打印完一行，换行
+//        }
+//    }
+//    return 0;
+//}
