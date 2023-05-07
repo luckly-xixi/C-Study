@@ -1197,21 +1197,24 @@ int main()
 	int i = 0;
 	int j = 0;
 	int n = 0;
-	int arr[][];
-	scasnf("%d",&n);
+	scanf("%d",&n);
+	int arr[14][14];
+
 	for (i = 0; i < n; i++)
 	{
 		for (j = 0; j <= i; j++) 
 		{
 			if ((i == j) || (j == 0))
 			{
-				printf("%d ",1);
+				arr[i][j] = 1;
+				printf("%d ",arr[i][j]);
 			}
 			else
 			{
 				if (i > 1)
 				{
-					printf("%d ",);
+					arr[i][j] = arr[i - 1][j - 1] + arr[i - 1][j];
+					printf("%d ",arr[i][j]);
 				}
 			}
 		}
