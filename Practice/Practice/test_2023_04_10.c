@@ -1192,33 +1192,71 @@
 //}
 
 //在屏幕上打印杨辉三角。
+//int main()
+//{
+//	int i = 0;
+//	int j = 0;
+//	int n = 0;
+//	scanf("%d",&n); 
+//	int arr[14][14];
+//
+//	for (i = 0; i < n; i++)
+//	{
+//		for (j = 0; j <= i; j++) 
+//		{
+//			if ((i == j) || (j == 0))
+//			{
+//				arr[i][j] = 1;
+//				printf("%d ",arr[i][j]);
+//			}
+//			else
+//			{
+//				if (i > 1)
+//				{
+//					arr[i][j] = arr[i - 1][j - 1] + arr[i - 1][j];
+//					printf("%d ",arr[i][j]);
+//				}
+//			}
+//		}
+//		printf("\n");
+//	}
+//	return 0;
+//}
+
+
+//杨氏矩阵
+//有一个数字矩阵，矩阵的每行从左到右是递增的，矩阵从上到下是递增的，请编写程序在这样的矩阵中查找某个数字是否存在。
+//要求：时间复杂度小于O(N);
+
 int main()
 {
-	int i = 0;
+	int arr[3][5] = {1,2,3,4,5,6,7,8,9,10};
+	//int len = strlen(arr[0]);
+	//printf("%d ",len);	1
+	int i = 4;
 	int j = 0;
-	int n = 0;
-	scanf("%d",&n);
-	int arr[14][14];
-
-	for (i = 0; i < n; i++)
+	int k = 0;
+	scanf("%d",&k);
+	int flg = 0;
+	while ((i<3)&&(j>=0))
 	{
-		for (j = 0; j <= i; j++) 
+		if (arr[i][j] < k)
 		{
-			if ((i == j) || (j == 0))
-			{
-				arr[i][j] = 1;
-				printf("%d ",arr[i][j]);
-			}
-			else
-			{
-				if (i > 1)
-				{
-					arr[i][j] = arr[i - 1][j - 1] + arr[i - 1][j];
-					printf("%d ",arr[i][j]);
-				}
-			}
+			j--;
 		}
-		printf("\n");
+		else if (arr[i][j] > k)
+		{
+			i++;
+		}
+		else
+		{
+			flg = 1;
+			break;
+		}
 	}
+	if (1 == flg)
+		printf("找到了\n");
+	else
+		printf("找不到\n");
 	return 0;
 }
