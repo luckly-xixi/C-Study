@@ -1228,35 +1228,129 @@
 //有一个数字矩阵，矩阵的每行从左到右是递增的，矩阵从上到下是递增的，请编写程序在这样的矩阵中查找某个数字是否存在。
 //要求：时间复杂度小于O(N);
 
-int main()
-{
-	int arr[3][5] = {1,2,3,4,5,6,7,8,9,10};
-	//int len = strlen(arr[0]);
-	//printf("%d ",len);	1
-	int i = 4;
-	int j = 0;
-	int k = 0;
-	scanf("%d",&k);
-	int flg = 0;
-	while ((i<3)&&(j>=0))
-	{
-		if (arr[i][j] < k)
-		{
-			j--;
-		}
-		else if (arr[i][j] > k)
-		{
-			i++;
-		}
-		else
-		{
-			flg = 1;
-			break;
-		}
-	}
-	if (1 == flg)
-		printf("找到了\n");
-	else
-		printf("找不到\n");
-	return 0;
-}
+//int main()
+//{
+//	int arr[3][3] = {1,2,3,4,5,6,7,8,9};
+//	//int len = strlen(arr[0]);
+//	//printf("%d ",len);	1
+//	int i = 0;
+//	int j = 2;
+//	int k = 0;
+//	scanf("%d",&k);
+//	int flg = 0;
+//	while ((i<3)&&(j>=0))
+//	{
+//		if (arr[i][j] > k)
+//		{
+//			j--;
+//		}
+//		else if (arr[i][j] < k)
+//		{
+//			i++;
+//		}
+//		else
+//		{
+//			flg = 1;
+//			break;
+//		}
+//	}
+//	if (1 == flg)
+//		printf("找到了\n");
+//	else
+//		printf("找不到\n");
+//	return 0;
+//}
+
+
+//int find_k(int arr[3][3],int k,int c,int r)
+//{
+//	int i = 0;
+//	int j = r-1;
+//	while ((i<=c-1)&&(j>=0))
+//	{
+//		if (arr[i][j] > k)
+//		{
+//			j--;
+//		}
+//		else if (arr[i][j] < k)
+//		{
+//			i++;
+//		}
+//		else
+//		{
+//			return 1;
+//		}
+//	}
+//	return 0;
+//}
+
+//int find_k(int (*arr)[3], int k, int c, int r)
+//{
+//	int i = 0;
+//	int j = r-1;
+//	while ((i <= c - 1) && (j >= 0))
+//	{
+//		if ((*(*(arr+i)+j)) < k)
+//		{
+//			i++;
+//		}
+//		else if ((*(*(arr + i) + j)) > k)
+//		{
+//			j--;
+//		}
+//		else
+//		{
+//			return 1;
+//		}
+//	}
+//	return 0;
+//}
+//
+//int main()
+//{
+//	int arr[3][3] = {1,2,3,4,5,6,7,8,9};
+//	int k = 0;
+//	scanf("%d",&k);
+//	//int ret = find_k(arr,k,3,3);
+//	int ret = find_k(arr,k,3,3);
+//	if (1 == ret)
+//		printf("找到了\n");
+//	else
+//		printf("找不到\n");
+//	return 0;
+//}
+
+
+//字符串左旋
+//实现一个函数，可以左旋字符串中的k个字符。
+//例如：
+//ABCD左旋一个字符得到BCDA
+//ABCD左旋两个字符得到CDAB
+
+
+//方法一
+//void left_move(char* p,int n,int k)
+//{
+//	while (k)
+//	{
+//		char ptr = *p;
+//		for (int i = 0; i < n-1; i++)
+//		{
+//			*(p + i) = *(p + i + 1);
+//		}
+//		*(p + n-1) = ptr;
+//		k--;
+//	}
+//}
+//
+//int main()
+//{
+//	char arr[] = "ABCD";
+//	int k = 0;
+// 	scanf("%d",&k);
+//	left_move(arr,strlen(arr),k);
+//	printf("%s\n",arr);
+//	return 0;
+//}
+
+
