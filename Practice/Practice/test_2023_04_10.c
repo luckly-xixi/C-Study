@@ -1348,9 +1348,34 @@
 //	char arr[] = "ABCD";
 //	int k = 0;
 // 	scanf("%d",&k);
-//	left_move(arr,strlen(arr),k);
+//	//left_move(arr,strlen(arr),k);
+//	left_move(arr,strlen(arr),k%strlen(arr));
+//	//考虑到多次旋转，如旋转超出整个数组长度，之后的旋转依然是从头开始，于是作此优化
 //	printf("%s\n",arr);
 //	return 0;
 //}
 
 
+
+//字符串旋转结果
+//写一个函数，判断一个字符串是否为另外一个字符串旋转之后的字符串。
+//例如：给定s1 = AABCD和s2 = BCDAA，返回1
+//给定s1 = abcd和s2 = ACBD，返回0.
+//AABCD左旋一个字符得到ABCDA
+//AABCD左旋两个字符得到BCDAA
+//AABCD右旋一个字符得到DAABC
+
+
+int is_left_move(char s1[],char s2[])
+{
+
+}
+
+
+int main()
+{
+	char s1[] = "AABCD";
+	char s2[] = "BCDAA";
+	is_left_move(s1,s2);
+	return 0;
+}
