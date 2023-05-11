@@ -1328,7 +1328,7 @@
 //ABCD左旋两个字符得到CDAB
 
 
-//方法一
+//方法一:单次左旋重复k次
 //void left_move(char* p,int n,int k)
 //{
 //	while (k)
@@ -1355,6 +1355,66 @@
 //	return 0;
 //}
 
+//void left_move(char arr[],int k)
+//{
+//	int len = strlen(arr);
+//	for (int i = 0; i < (k % len); i++)
+//		//为防止多次重复，让k除上长度取余数
+//	{//第一层循环，控制旋转个数
+//		char tmp = arr[0];
+//		for (int j = 0; j < len - 1; j++)
+//		{//第二层循环，控制除0之后的字符往前覆盖一个，一直到倒数第二个
+//			arr[j] = arr[j + 1];
+//		}
+//		arr[len - 1] = tmp;
+//	}
+//}
+//
+//int main()
+//{
+//	char arr[] = "abcdefghi";
+//	int k = 0;
+//	scanf("%d",&k);
+//	left_move(arr,k);
+//	printf("%s\n",arr);
+//	return 0;
+//}
+
+
+//方法二：逆序（三次）
+
+//void revers(char* left,char* right)
+//{
+//	assert(left && right);
+//	while (left < right)
+//	{
+//		char tmp = *left;
+//		*left = *right;
+//		*right = tmp;
+//		right--;
+//		left++;
+//	}
+//}
+//
+//
+//void left_move(char arr[],int k)
+//{
+//	int len = strlen(arr);
+//	k %= len;
+//	revers(arr,arr+k-1);
+//	revers(arr+k,arr+len-1);
+//	revers(arr,arr+len-1);
+//}
+//
+//int main()
+//{
+//	char arr[] = "abcdefghi";
+//	int k = 0;
+//	scanf("%d",&k);
+//	left_move(arr,k);
+//	printf("%s\n",arr);
+//	return 0;
+//}
 
 
 //字符串旋转结果
@@ -1365,17 +1425,60 @@
 //AABCD左旋两个字符得到BCDAA
 //AABCD右旋一个字符得到DAABC
 
+//方法一：每左旋一次就比较
+//int is_left_move(char s1[],char s2[])
+//{
+//	int len = strlen(s2);
+//	for (int i = 0; i < len; i++)
+//	{//第一次循环，控制左旋字符的次数
+//		char tmp = s2[0];
+//		for (int j = 0; j < len - 1; j++)
+//		{//第二层循环，控制左旋一个字符的覆盖
+//			s2[j] = s2[j + 1];
+//		}
+//		s2[len - 1] = tmp;
+//		if (0 == strcmp(s2, s1))
+//			//比较两字符串，相同直接返回
+//			return 1;
+//	}
+//	return 0;
+//}
+//
+//
+//int main()
+//{
+//	char s1[] = "ABCDEF";
+//	char s2[] = "BCDEFA";
+//	int ret = is_left_move(s1,s2);
+//	if (1 == ret)
+//		printf("YES\n");
+//	else
+//		printf("NO\n");
+//	return 0;
+//}
 
-int is_left_move(char s1[],char s2[])
-{
+//方法二：在主字符串之后再追加一个自己，然后看比较字符串是否是主字符串的子串
 
-}
-
-
-int main()
-{
-	char s1[] = "AABCD";
-	char s2[] = "BCDAA";
-	is_left_move(s1,s2);
-	return 0;
-}
+//int is_left_move(char arr1[], char arr2[])
+//{
+//	int len = strlen(arr1);
+//	strncat(arr1, arr1, len);//在主字符串中追加一个自己
+//	int ret = strstr(arr1,arr2);//比较两字符串看是否是主字符串的子串
+//	if (NULL == ret)
+//		return 0;
+//	else
+//		return 1;
+//}
+//
+//int main()
+//{
+//	char arr1[20] = "ABCDEF";
+//	//注意：这里因为要在主字符串当中追加一个自己，那么要确保主字符串数组中可以放的下，空间要考虑到
+//	char arr2[] = "CDEFAB";
+//	int ret = is_left_move(arr1,arr2);
+//	if (1 == ret)
+//		printf("YES\n");
+//	else
+//		printf("NO\n");
+//	return 0;
+//}
