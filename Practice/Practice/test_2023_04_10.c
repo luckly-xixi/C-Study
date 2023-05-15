@@ -1560,3 +1560,33 @@
 //第三行输入想要进行插入的一个整数。
 //输出为一行，N + 1个有序排列的整数。
 
+int main() {
+    int a, b;
+    int arr[51];
+    int k = 0;
+    int m, i;
+    //数组个数
+    scanf("%d", &k);
+    for (int i = 0; i < k; i++)
+    {//录入数组
+        scanf("%d", &arr[i]);
+    }
+    scanf("%d", &m);//录入新插入的数据
+
+    //输入
+    for (i = 0; i <= (k - 1); i++)
+    {
+        //比录入的新数据小则正常输出
+        if (arr[i] <= m)
+            printf("%d ", arr[i]);
+        //比录入的新数据大的数据则先输出录入的数据
+        if (arr[i] > m)
+            break;
+    }
+    printf("%d ", m);
+    for (i; i <= (k - 1); i++)
+    {
+        printf("%d ", arr[i]);
+    }
+    return 0;
+}
