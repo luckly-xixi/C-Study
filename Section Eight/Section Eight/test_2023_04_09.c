@@ -1,6 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include<stdio.h>
 #include<assert.h>
+#include <cassert>
 
 //int main()
 //{
@@ -42,21 +43,68 @@
 
 //模拟实现stelen
 
-int my_strlen(const char* str)
+//int my_strlen(const char* str)
+//{
+//	assert(str);
+//	int count = 0;
+//	
+//	while (*str++)
+//	{
+//		count++;
+//	}
+//
+//	return count;
+//}
+//
+//int main()
+//{
+//	char arr[] = "abcdef";
+//	int len = my_strlen(arr);
+//	printf("%d\n",len);
+//	return 0;
+//}
+
+
+//strcpy的使用
+//int main()
+//{
+//	char arr1[] = "abcdeee";
+//	char arr2[] = "vvvv";
+//	char arr3 = "abbbb";
+//	char arr4 = "acccc";
+//	//strcpy(arr1,arr2);
+//	//strcpy(arr2,arr1); - error
+//	//printf("%s\n",arr2);
+//	//printf("%s\n",arr1);
+//	strcpy(arr3, arr4);
+//	strcpy(arr4, arr3);
+//	//printf("%s\n",arr3); - error
+//	//printf("%s\n",arr4); -error
+//	//printf("%s\n",arr3); -error
+//}
+
+
+
+char* my_strcpy(char* dest, const char* src)
 {
-	assert(str);
-	int count = 0;
-	while (str++)
+	assert(dest&&src);
+	char* str = dest;
+	while (dest++&&src++)
 	{
-		count++;
+		*dest = *src;
+		//*str = *src;
+		//str++;
+		//src++;
 	}
-	return count;
+	return str;
 }
 
 int main()
 {
-	char arr[] = "abcdef";
-	int len = my_strlen(arr);
-	printf("%d\n",len);
+	char arr1[] = "abcde";
+	char arr2[] = "acdeg";
+	my_strcpy(arr1,arr2);
+	printf("%s\n",arr1);
+	//printf("%s\n",arr2);
 	return 0;
 }
