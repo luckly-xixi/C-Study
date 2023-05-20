@@ -84,27 +84,77 @@
 //}
 
 
+//strcpy的模拟实现
+//char* my_strcpy(char* dest, const char* src)
+//{
+//	assert(dest&&src);
+//	char* str = dest;
+//	while (*(dest++)&&*(src++))
+//	{
+//		*dest = *src;
+//		//*str = *src;
+//		//str++;
+//		//src++;
+//	}
+//	return str;
+//}
+//
+//int main()
+//{
+//	char arr1[] = "abcde";
+//	char arr2[] = "acdeg";
+//	my_strcpy(arr1,arr2);
+//	printf("%s\n",arr1);
+//	//printf("%s\n",arr2);
+//	return 0;
+//}
 
-char* my_strcpy(char* dest, const char* src)
+
+
+
+//strcat使用
+//int main()
+//{
+//	char arr1[20] = "abcdef";
+//	char arr2[] = "md\0zzsb";
+//	//char arr2[] = "mdzzsb";
+//	strcat(arr1,arr2);
+//	//strcat(arr1,arr1);
+//	printf("%s\n",arr1);
+//	return 0;
+//}
+
+
+
+char* my_strcat(char* dest, const char* src)
 {
 	assert(dest&&src);
 	char* str = dest;
-	while (dest++&&src++)
+	while (*dest++)
 	{
-		*dest = *src;
-		//*str = *src;
-		//str++;
-		//src++;
 	}
+	while((*dest++ = *src++))
+	//while (*src)
+	{
+	/*	*dest = *src;
+		dest++; 
+		src++;*/
+	}
+	*dest = *src;
 	return str;
 }
 
+
 int main()
 {
-	char arr1[] = "abcde";
-	char arr2[] = "acdeg";
-	my_strcpy(arr1,arr2);
-	printf("%s\n",arr1);
-	//printf("%s\n",arr2);
+	//char arr1[20] = "abcd";
+	char arr1[20] = "abcdef";
+	char arr2[] = "md\0zzsb";
+	//char arr2[] = "xxxx";
+	my_strcat(arr1,arr2);
+	printf("%s\n", arr1);
+	printf("%s\n", arr2);
 	return 0;
 }
+
+
