@@ -125,36 +125,73 @@
 //}
 
 
+//模拟实现
+//char* my_strcat(char* dest, const char* src)
+//{
+//	assert(dest&&src);
+//	char* str = dest;
+//	while (*dest)
+//	{
+//		dest++;
+//	}
+//	//while((*dest++ = *src++))
+//	while (*src)
+//	{
+//		*dest = *src;
+//		dest++; 
+//		src++;
+//	}
+//	*dest = *src;
+//	return str;
+//}
+//
+//
+//int main()
+//{
+//	//char arr1[20] = "abcd";
+//	char arr1[20] = "abcdef";
+//	char arr2[] = "md\0zzsb";
+//	//char arr2[] = "xxxx";
+//	my_strcat(arr1,arr2);
+//	printf("%s\n", arr1);
+//	printf("%s\n", arr2);
+//	return 0;
+//}
 
-char* my_strcat(char* dest, const char* src)
-{
-	assert(dest&&src);
-	char* str = dest;
-	while (*dest++)
-	{
-	}
-	while((*dest++ = *src++))
-	//while (*src)
-	{
-	/*	*dest = *src;
-		dest++; 
-		src++;*/
-	}
-	*dest = *src;
-	return str;
-}
 
 
+//strcmp的使用
+//int main()
+//{
+//	
+//	//char arr1[20] = "abcdef";
+//	//char arr2[] = "md";
+//	//int ret = strcmp(arr1, arr2); //-1
+//	// 
+//	//char arr3[] = "ndd";
+//	//char arr4[] = "amdd";
+//	//int ret = strcmp(arr3,arr4);  //1
+//
+//	//char arr5[] = "n";
+//	//char arr6[] = "n";
+//	//int ret = strcmp(arr5, arr6);  //0
+//	
+//	//char arr7[] = "acc";
+//	//char arr8[] = "accd";
+//	//int ret = strcmp(arr7,arr8); //- 1
+//
+//	char arr9[] = "accd";
+//	char arr10[] = "acc";
+//	int ret = strcmp(arr9, arr10); //1
+//
+//	printf("%d\n", ret);
+//	return 0;
+//}
+
+
+//模拟实现
 int main()
 {
-	//char arr1[20] = "abcd";
-	char arr1[20] = "abcdef";
-	char arr2[] = "md\0zzsb";
-	//char arr2[] = "xxxx";
-	my_strcat(arr1,arr2);
-	printf("%s\n", arr1);
-	printf("%s\n", arr2);
+	char a
 	return 0;
 }
-
-
