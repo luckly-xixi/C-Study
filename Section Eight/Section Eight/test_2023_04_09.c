@@ -1,7 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include<stdio.h>
 #include<assert.h>
-#include <cassert>
+#include <string.h>
 
 //int main()
 //{
@@ -41,6 +41,20 @@
 //}
 
 
+//int main()
+//{
+//	//输出结果为 >
+//	if (strlen("abc") - strlen("abcdef") > 0 )
+//		//在if中的语句通过计算两个字符串的长度，3-6，但是由于stelen函数返回的
+//		//类型是无符号数，那么3-6得到的-3也是以无符号数来看待
+//		printf(">\n");
+//	else
+//		printf("<\n");
+//	return 0;
+//}
+
+
+
 //模拟实现stelen
 
 //int my_strlen(const char* str)
@@ -65,7 +79,7 @@
 //}
 
 
-//strcpy的使用
+//strcpy的使用（常量字符串不可修改）
 //int main()
 //{
 //	char arr1[] = "abcdeee";
@@ -131,6 +145,7 @@
 //	assert(dest&&src);
 //	char* str = dest;
 //	while (*dest)
+//	//while (*dest++);  存在问题，目的地空间内的'\0'未被覆盖掉
 //	{
 //		dest++;
 //	}
@@ -190,8 +205,107 @@
 
 
 //模拟实现
-int main()
-{
-	char a
-	return 0;
-}
+
+
+//int my_strcmp(const char* str1, const char* str2)
+//{
+//	assert(str1, str2);
+//	while (*str1 == *str2)
+//	{
+//		if (*str1 == '\0')
+//			return 0;
+//		str1++;
+//		str2++;
+//	}
+//	if (*str1 > *str2)
+//		return 1;
+//	else
+//		return -1;
+//	//return str1 - str2;
+//}
+//
+//
+//int main()
+//{
+//	//char arr1[] = "abcd";
+//	//char arr2[] = "vv";
+//	//int ret = my_strcmp(arr1,arr2);
+//
+//
+//	char arr3[] = "abcd";
+//	char arr4[] = "abcd";
+//	int ret = my_strcmp(arr3, arr4);
+//
+//	if (ret == 0)
+//		printf("两字符串相等\n");
+//	else if (ret > 0)
+//		printf("第一个字符串大\n");
+//	else
+//		printf("第二个字符串大\n");
+//	printf("%d\n", ret);
+//	
+//	return 0;
+//}
+
+
+//strncpy的使用和熟悉
+//int main()
+//{
+//	//char arr1[] = "abcdef";
+//	//char arr2[] = "xxxxx";
+//	//strncpy(arr1,arr2,3);
+//	//printf("%s\n",arr1);// - xxxdef
+//
+//	//char arr3[] = "abcdef";
+//	//char arr4[] = "xx";
+//	//strncpy(arr3, arr4, 5);
+//	//printf("%s\n", arr3);// - xx\0\0\0
+//	return 0;
+//}
+
+
+//strncpy的自主实现
+//char* my_strncpy(char* dest, const char* src, size_t num)
+//{
+//	assert(dest && src);
+//	char* start = dest;
+//	//库函数里面的实现
+//	//while (num&&(*dest++ = *src++) != '\0')
+//	//{//拷贝字符
+//	//	num--;
+//	//}
+//	//if (num)
+//	////当出现src里面到字符串末尾，那么在dest里面补\0
+//	//	while (--num)
+//	//		*dest++ = '\0';
+//	while (num)
+//	{
+//		if (*src == '\0')
+//			break;
+//		*dest = *src;
+//		dest++;
+//		src++;
+//		num--;
+//	}
+//	while(num)
+//	{
+//		*dest = '\0';
+//		dest++;
+//		num--;
+//	}
+//	return start;
+//}
+//
+//int main()
+//{
+//	/*char arr1[] = "abcdef";
+//	char arr2[] = "xxxxx";
+//	my_strncpy(arr1, arr2, 3);
+//	printf("%s\n", arr1);*/
+//
+//	char arr3[] = "abcdef";
+//	char arr4[] = "xx";
+//	my_strncpy(arr3, arr4, 5);
+//	printf("%s\n", arr3);// - xx\0\0\0
+//	return 0;
+//}
