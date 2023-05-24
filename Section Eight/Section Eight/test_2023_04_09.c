@@ -144,6 +144,7 @@
 //{
 //	assert(dest&&src);
 //	char* str = dest;
+//
 //	while (*dest)
 //	//while (*dest++);  存在问题，目的地空间内的'\0'未被覆盖掉
 //	{
@@ -309,3 +310,173 @@
 //	printf("%s\n", arr3);// - xx\0\0\0
 //	return 0;
 //}
+
+
+
+
+
+//strncat的熟悉和使用
+
+
+//int main()
+//{
+//	//char arr1[20] = "ab\0daaaaaaaa";
+//	//char arr2[] = "xxxx";
+//	//strncat(arr1, arr2, 5);
+//
+//	//char arr1[20] = "ab\0cddddd";
+//	//char arr2[] = "xxx";
+//	//strncat(arr1, arr2, 2);
+//
+//	//char arr1[20] = "ab\0cddddd";
+//	//char arr2[] = "xxx";
+//	//strncat(arr1, arr2, 5);
+//
+//	char arr1[20] = "ab\0cddddd";
+//	char arr2[] = "xxx";
+//	strncat(arr1, arr1, 2);
+//
+//	printf("%s\n",arr1);
+//	return 0;
+//}
+
+
+//strncat自主实现
+
+//char* my_strncat(char* dest,const char* src,size_t num)
+//{
+//	char* str = dest;
+//
+//	//库函数
+//	while (*str++);
+//	//遍历目的地字符串到达最后，因为while(*str++)所以停下的条件是
+//	//*str == '\0'，但是由于后置++，导致str又前进一步，此时需要往后退一步
+//	str--;
+//	//通过个数进行控制在目的地末尾追加的字符个数
+//	while (num--)
+//		if ((*str++ = *src++) == 0)
+//			//如果在源头当中没有那么多的字符追加到目的地末尾，只补充一个'\0'
+//			return dest;
+//	*str = '\0';
+//	return dest;
+//
+//	//自主实现
+//	//while (*dest)
+//	//{//遍历目的地字符串到其末尾
+//	//	dest++;
+//	//}
+//	////开始追加
+//	//while (num && (*dest++ = *src++))
+//	//{
+//	//	num--;
+//	//}
+//	//if (num)
+//	//{
+//	//	*dest = '\0';
+//	//	num--;
+//	//}
+//	//if (0 == num)
+//	//{
+//	//	*dest = '\0';
+//	//}
+//	//return str;
+//
+//}
+//
+//
+//int main()
+//{
+//	//char arr1[20] = "ab\0cddddd";
+//	//char arr2[] = "xxx";
+//	//my_strncat(arr1, arr2, 2);
+//
+//	//char arr1[20] = "ab\0cddddd";
+//	//char arr2[] = "xxx";
+//	//my_strncat(arr1, arr2, 5);
+//
+//	char arr1[20] = "ab\0cddddd";
+//	char arr2[] = "xxx";
+//	my_strncat(arr1, arr1, 2);
+//
+//	printf("%s\n",arr1);
+//	return 0;
+//}
+
+
+
+
+
+////strncmp的熟悉与使用
+//int main()
+//{
+//	//char arr1[] = "abcd";
+//	//char arr2[] = "abc";
+//	//int ret = strncmp(arr1, arr2, 3);// - 0
+//	//printf("%d\n",ret);
+//
+//	//char arr1[] = "abcd";
+//	//char arr2[] = "abd";
+//	//int ret = strncmp(arr1, arr2, 3);
+//	//printf("%d\n", ret);// -1
+//
+//	//char arr1[] = "abdd";
+//	//char arr2[] = "abb";
+//	//int ret = strncmp(arr1, arr2, 3);
+//	//printf("%d\n", ret); //    -    1
+//
+//	//char arr1[] = "zbcd";
+//	//char arr2[] = "xxxx";
+//	//int ret = strncmp(arr1, arr1, 3);
+//	//printf("%d\n", ret);
+//
+//	return 0;
+//}
+
+
+
+
+//strncmp的自主实现
+
+int my_strncmp(const char* str1,const char* str2,size_t num)
+{
+	assert(str1 && str2);
+	while (num&&(*str1 == *str2))
+	{
+		if (*str1 == '\0')
+			return 0;
+		str1++;
+		str2++;
+		num--;
+	}
+	if (*str1 > *str2)
+		return 1;
+	else
+		return -1;
+}
+
+
+int main()
+{
+	
+	char arr1[] = "abcd";
+	char arr2[] = "abc";
+	int ret = my_strncmp(arr1, arr2, 3);// - 0
+	printf("%d\n",ret);
+
+	//char arr1[] = "abcd";
+	//char arr2[] = "abd";
+	//int ret = my_strncmp(arr1, arr2, 3);
+	//printf("%d\n", ret);// -1
+
+	//char arr1[] = "abdd";
+	//char arr2[] = "abb";
+	//int ret = my_strncmp(arr1, arr2, 3);
+	//printf("%d\n", ret); //    -    1
+
+	//char arr1[] = "zbcd";
+	//char arr2[] = "xxxx";
+	//int ret = my_strncmp(arr1, arr1, 3);
+	//printf("%d\n", ret);
+
+	return 0;
+}
