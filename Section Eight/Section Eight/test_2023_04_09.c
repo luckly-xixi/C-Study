@@ -424,12 +424,12 @@
 //	//int ret = strncmp(arr1, arr2, 3);
 //	//printf("%d\n", ret); //    -    1
 //
-//	//char arr1[] = "zbcd";
-//	//char arr2[] = "xxxx";
-//	//int ret = strncmp(arr1, arr1, 3);
-//	//printf("%d\n", ret);
+//	char arr1[] = "zbcd";
+//	char arr2[] = "xxxx";
+//	int ret = strncmp(arr1, arr1, 3);
+//	printf("%d\n", ret);
 //
-//	return 0;
+//	return 0; 
 //}
 
 
@@ -437,46 +437,87 @@
 
 //strncmp的自主实现
 
-int my_strncmp(const char* str1,const char* str2,size_t num)
-{
-	assert(str1 && str2);
-	while (num&&(*str1 == *str2))
-	{
-		if (*str1 == '\0')
-			return 0;
-		str1++;
-		str2++;
-		num--;
-	}
-	if (*str1 > *str2)
-		return 1;
-	else
-		return -1;
-}
+//int my_strncmp(const char* str1,const char* str2,size_t num)
+//{
+//	assert(str1 && str2);
+//		while ((num) && (*str1 == *str2))
+//		{
+//			str1++;
+//			str2++;
+//			num--;
+//			if ((*str1 == '\0') || (*str2 == '\0')||(num == 0))
+//				return 0;
+//		}
+//	if (*str1 > *str2)
+//		return 1;
+//	else
+//		return -1;
+//}
+//
+//
+//int main()
+//{
+//	
+//	//char arr1[] = "abcd";
+//	//char arr2[] = "abc";
+//	//int ret = my_strncmp(arr1, arr2, 3);// - 0
+//	//printf("%d\n",ret);
+//
+//	//char arr1[] = "abcd";
+//	//char arr2[] = "abd";
+//	//int ret = my_strncmp(arr1, arr2, 3);
+//	//printf("%d\n", ret);// -1
+//
+//	//char arr1[] = "abdd";
+//	//char arr2[] = "abb";
+//	//int ret = my_strncmp(arr1, arr2, 3);
+//	//printf("%d\n", ret); //    -    1
+//
+//	char arr1[] = "zbcd";
+//	char arr2[] = "xxxx";
+//	int ret = my_strncmp(arr1, arr1, 3);
+//	printf("%d\n", ret);
+//
+//	return 0;
+//}
 
+
+
+//strstr 的熟悉和适合
+//int main()
+//{
+//	char arr1[] = "abcefgggabcd";
+//	char arr2[] = "abcd";
+//	char* p = strstr(arr1, arr2);
+//	printf("%s\n",p);
+//	return 0;
+//}
+
+
+
+
+//strstr自主实现（Bf算法）
+char* my_strstr(const char* str1,const char* str2)
+{
+	const char* s1 = str1;
+	const char* s2 = str2;
+	const char* p = str1;
+	while(*s1 != '\0')
+	{
+		if (*s1 == *s2)
+		{
+			s2++;
+		}
+		s1++;
+
+	}
+}
 
 int main()
 {
-	
-	char arr1[] = "abcd";
-	char arr2[] = "abc";
-	int ret = my_strncmp(arr1, arr2, 3);// - 0
-	printf("%d\n",ret);
-
-	//char arr1[] = "abcd";
-	//char arr2[] = "abd";
-	//int ret = my_strncmp(arr1, arr2, 3);
-	//printf("%d\n", ret);// -1
-
-	//char arr1[] = "abdd";
-	//char arr2[] = "abb";
-	//int ret = my_strncmp(arr1, arr2, 3);
-	//printf("%d\n", ret); //    -    1
-
-	//char arr1[] = "zbcd";
-	//char arr2[] = "xxxx";
-	//int ret = my_strncmp(arr1, arr1, 3);
-	//printf("%d\n", ret);
-
+	char arr1[] = "abcefgggabcd";
+	char arr2[] = "abcd";
+	char* p = my_strstr(arr1, arr2);
+	printf("%s\n",p);
 	return 0;
 }
