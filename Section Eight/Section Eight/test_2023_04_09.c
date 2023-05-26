@@ -496,28 +496,79 @@
 
 
 
-//strstr自主实现（Bf算法）
-char* my_strstr(const char* str1,const char* str2)
-{
-	const char* s1 = str1;
-	const char* s2 = str2;
-	const char* p = str1;
-	while(*s1 != '\0')
-	{
-		if (*s1 == *s2)
-		{
-			s2++;
-		}
-		s1++;
+//strstr自主实现（BF 算法）
+//char* my_strstr(const char* str1,const char* str2)
+//{
+////	//方法一：
+////	const char* s1 = str1;
+////	const char* s2 = str2;
+////	const char* p = str1;
+//////str1和str2不动，主要是用来记录位置，让主串中p遍历主串，而主串当中的s1用于配合子串
+////	//当中的s2来去进行比较字符的一致性
+////	while (*p)//主抓主串当中的p
+////	{
+////		s1 = p;
+////		s2 = str2;//让子串从头开始和主串的字符比较
+////		while (*s1 != '\0' && *s2 != '\0' && (*s1 == *s2))
+////		{//主串和子串都为遍历到末尾，并且比较的字符一样
+////			s1++;
+////			s2++;
+////		}
+////		if (*s2 == '\0')
+////		{//在这里子串遍历完毕，说明子串存在于主串中
+////			return (char*)p;
+////		}
+////		p++;
+////	}
+////	return NULL;
+//
+//
+//
+//	//方法二：
+//	assert(str1&&str2);//断言 
+//	int str1len = strlen(str1);
+//	int str2len = strlen(str2);
+//	//求出主串和子串的长度用于使用数组下标
+//	int i = 0;
+//	int j = 0;
+//
+//	while (i < str1len || j < str2len)
+//	{
+//		//如果主串和子串相等都向后走一步
+//		if (str1[i] == str2[j])
+//		{
+//			i++;
+//			j++;
+//		}
+//		else
+//		{//不等则让子串置为0，主串置为匹配成功的下一个
+//			i = i - j + 1;
+//			j = 0;
+//		}
+//	}
+//
+//	if (str2len >= j)
+//	{//子串遍历完毕，说明找到
+//		return str1+i-j;
+//	}
+//	return NULL;//主串遍历完毕说明子串在主串中不存在
+//}
 
-	}
-}
+
+
+//strstr自主实现(KMP算法)
+
+
+
 
 int main()
 {
 	char arr1[] = "abcefgggabcd";
-	char arr2[] = "abcd";
+	char arr2[] = "bcd";
 	char* p = my_strstr(arr1, arr2);
-	printf("%s\n",p);
+	if (NULL == p)
+		printf("不存在\n");
+	else
+		printf("%s\n",p);
 	return 0;
 }
