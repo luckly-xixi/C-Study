@@ -556,19 +556,154 @@
 
 
 
-//strstr自主实现(KMP算法)
+//strstr实现(KMP算法)
+
+//void GetNext(char* sub,int* next,int lenSub)
+//{//求next数组
+//	next[0] = -1;
+//	next[1] = 0;
+//	int i = 2;
+//	int k = 0;
+//
+//	while (i < lenSub)
+//	{
+//		if (k == -1 || sub[i - 1] == sub[k])
+//		{
+//			next[i] = k + 1;
+//			i++;
+//			k++;
+//		}
+//		else
+//		{
+//			k = next[k];
+//		}
+//	}
+//}
+//
+//
+//
+//int KMP(const char* str, const char* sub, int pos)
+//{
+//	assert(str && sub);
+//	//求出主串和子串的长度用于方便访问数组使用
+//	int lenStr = strlen(str);
+//	int lenSub = strlen(sub);
+//	
+//	//不合法情况的考虑
+//	if (lenStr == 0 || lenSub == 0)
+//		return -1;//空字符串情况
+//	if (pos < 0 || pos >= lenStr)
+//		return -1;//pos下标不合法
+//	
+//	//给next数组分配空间
+//	int* next = (int*)malloc(sizeof(int) * lenSub);
+//	assert(next);
+//
+//	//求出next数组
+//	GetNext(sub, next, lenSub);
+//
+//	//设定出主串和子串遍历时的标志
+//	int i = pos;//遍历主串
+//	int j = 0;//遍历子串
+//
+//
+//	while (i<lenStr && j<lenSub)
+//	{
+//		if (j == -1 || str[i] == sub[j])
+//		{//相等则比较下一个
+//			i++;
+//			j++;
+//		}
+//		else
+//		{//不等则通过next数组回退
+//			j = next[j];
+//		}
+//	}
+//	if (j >= lenSub)
+//	{//遍历完的情况
+//		return i - j;
+//	}
+//	return -1;
+//}
+
+//
+//void GetNext(char* sub, int* next, int lenSub)
+//{
+//	next[0] = -1;
+//	next[1] = 0; 
+//
+//	int i = 2;
+//	int k = 0;
+//
+//	while (i < lenSub)
+//	{
+//		if (k == -1 || sub[i - 1] == sub[k])
+//		{
+//			next[i] = k + 1;
+//			i++;
+//			k++;
+//		}
+//		else
+//		{
+//			k = next[k];
+//		}
+//	}
+//}
+//
+//char* my_strstr(const char* str, const char* sub)
+//{
+//	assert(str && sub);
+//	
+//	int lenStr = strlen(str);
+//	int lenSub = strlen(sub);
+//
+//	if (lenStr == 0 || lenSub == 0)
+//		return NULL;
+//
+//	int* next = (int*)malloc(sizeof(int) * lenSub);
+//	assert(next);
+//	
+//	GetNext(sub,next,lenSub);
+//
+//	int i = 0;//主串
+//	int j = 0;//子串
+//	
+//	while (i<lenStr && j<lenSub)
+//	{
+//		if (j == -1 || str[i] == sub[j])
+//		{
+//			i++;
+//			j++;
+//		}
+//		else
+//		{
+//			j = next[j];
+//		}
+//	}
+//	if (j >= lenSub)
+//	{
+//		return str+i - j;
+//	}
+//	return NULL;
+//}
+//
+//
+//int main()
+//{
+//	char arr1[] = "abcefgggabcd";
+//	char arr2[] = "bcd";
+//	char* p = my_strstr(arr1, arr2);
+//	if (NULL == p)
+//		printf("不存在\n");
+//	else
+//		printf("%s\n",p);
+//	return 0;
+//}
 
 
 
 
 int main()
 {
-	char arr1[] = "abcefgggabcd";
-	char arr2[] = "bcd";
-	char* p = my_strstr(arr1, arr2);
-	if (NULL == p)
-		printf("不存在\n");
-	else
-		printf("%s\n",p);
 	return 0;
 }
