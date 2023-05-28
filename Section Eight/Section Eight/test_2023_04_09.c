@@ -705,5 +705,17 @@
 
 int main()
 {
+	char arr1 = "wst@qq.com";
+	char arr2 = "@.";
+
+	char* p = strtok(arr1, arr2);
+	printf("%s\n",p);
+	
+	char* p = strtok(NULL, arr2);
+	printf("%s\n", p);
+
+	char* p = strtok(NULL, arr2);
+	printf("%s\n", p);
+
 	return 0;
 }
