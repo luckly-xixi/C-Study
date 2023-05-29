@@ -701,21 +701,113 @@
 //}
 
 
+//strtok熟悉使用
+
+//int main()
+//{
+//	char arr1[] = "xixi@qq.com";
+//	char arr2[] = "@.";
+//
+//	//char* p = strtok(arr1, arr2);
+//	//printf("%s\n",p);
+//	//
+//	//p = strtok(NULL, arr2);
+//	//printf("%s\n", p);
+//
+//	//p = strtok(NULL, arr2);
+//	//printf("%s\n", p);
+//
+//	//for循环用法
+//	for (char* p = strtok(arr1,arr2); p != NULL; p = strtok(NULL,arr2))
+//	{
+//		printf("%s\n",p);
+//	}
+//
+//	return 0;
+//}
+
+
+//strtok的实现
+char* my_strtok(char* str,const char* sep)
+{
+	assert(str && sep);
+	static char* s1 = NULL;
+	static const char* s2 = NULL;
+	static int sz1 = 0;
+	static int sz2 = 0;
+	static int count = 0;
+	//第一次进入
+	if (str != NULL)
+	{
+		sz1 = strlen(str);
+		sz1 = strlen(sep);
+		s2 = str;
+		for (*str; str != '\0'; str++)
+		{
+			for (int i = 0; i < sz2; i++)
+			{
+				if (i == 0)
+				{
+					count++;
+				}
+				if (*str == *(sep + i))
+				{
+					*str = 0;
+					s1 = str;
+					return s2;
+				}
+			}
+		}
+	}
+	//不是第一次
+	else
+	{
+		s2 = s1 + 1;
+		str = s2;
+		sz2 = strlen(sep);
+		for (*str; str != '\0'; str++)
+		{
+			for (int i = 0; i < sz2; i++)
+			{
+				if (i == 0)
+				{
+					count++;
+				}
+				if (*str == *(sep + i))
+				{
+					*str = 0;
+					s1 = str;
+					return s2;
+				}
+			}
+		}
+		if (count > sz1)
+		{
+			return NULL;
+		}
+		return s2;
+	}
+}
 
 
 int main()
 {
-	char arr1 = "wst@qq.com";
-	char arr2 = "@.";
+	char arr1[] = "xixi@qq.com";
+	char arr2[] = "@.";
 
-	char* p = strtok(arr1, arr2);
-	printf("%s\n",p);
-	
-	char* p = strtok(NULL, arr2);
-	printf("%s\n", p);
+	//char* p = strtok(arr1, arr2);
+	//printf("%s\n",p);
 
-	char* p = strtok(NULL, arr2);
-	printf("%s\n", p);
+	//p = strtok(NULL, arr2);
+	//printf("%s\n", p);
 
+	//p = strtok(NULL, arr2);
+	//printf("%s\n", p);
+
+	//for循环用法
+	for (char* p = my_strtok(arr1, arr2); p != NULL; p = my_strtok(NULL, arr2))
+	{
+		printf("%s\n", p);
+	}
 	return 0;
 }
