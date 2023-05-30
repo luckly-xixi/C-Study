@@ -2,6 +2,7 @@
 #include<stdio.h>
 #include<assert.h>
 #include <string.h>
+#include <ctype.h>
 
 //int main()
 //{
@@ -728,86 +729,192 @@
 
 
 //strtok的实现
-char* my_strtok(char* str,const char* sep)
-{
-	assert(str && sep);
-	static char* s1 = NULL;
-	static const char* s2 = NULL;
-	static int sz1 = 0;
-	static int sz2 = 0;
-	static int count = 0;
-	//第一次进入
-	if (str != NULL)
-	{
-		sz1 = strlen(str);
-		sz1 = strlen(sep);
-		s2 = str;
-		for (*str; str != '\0'; str++)
-		{
-			for (int i = 0; i < sz2; i++)
-			{
-				if (i == 0)
-				{
-					count++;
-				}
-				if (*str == *(sep + i))
-				{
-					*str = 0;
-					s1 = str;
-					return s2;
-				}
-			}
-		}
-	}
-	//不是第一次
-	else
-	{
-		s2 = s1 + 1;
-		str = s2;
-		sz2 = strlen(sep);
-		for (*str; str != '\0'; str++)
-		{
-			for (int i = 0; i < sz2; i++)
-			{
-				if (i == 0)
-				{
-					count++;
-				}
-				if (*str == *(sep + i))
-				{
-					*str = 0;
-					s1 = str;
-					return s2;
-				}
-			}
-		}
-		if (count > sz1)
-		{
-			return NULL;
-		}
-		return s2;
-	}
-}
+//char* my_strtok(char* str,const char* sep)
+//{
+//	assert(str && sep);
+//	static char* s1 = NULL;
+//	static const char* s2 = NULL;
+//	static int sz1 = 0;
+//	static int sz2 = 0;
+//	static int count = 0;
+//	//第一次进入
+//	if (str != NULL)
+//	{
+//		sz1 = strlen(str);
+//		sz1 = strlen(sep);
+//		s2 = str;
+//		for (*str; str != '\0'; str++)
+//		{
+//			for (int i = 0; i < sz2; i++)
+//			{
+//				if (i == 0)
+//				{
+//					count++;
+//				}
+//				if (*str == *(sep + i))
+//				{
+//					*str = 0;
+//					s1 = str;
+//					return s2;
+//				}
+//			}
+//		}
+//	}
+//	//不是第一次
+//	else
+//	{
+//		s2 = s1 + 1;
+//		str = s2;
+//		sz2 = strlen(sep);
+//		for (*str; str != '\0'; str++)
+//		{
+//			for (int i = 0; i < sz2; i++)
+//			{
+//				if (i == 0)
+//				{
+//					count++;
+//				}
+//				if (*str == *(sep + i))
+//				{
+//					*str = 0;
+//					s1 = str;
+//					return s2;
+//				}
+//			}
+//		}
+//		if (count > sz1)
+//		{
+//			return NULL;
+//		}
+//		return s2;
+//	}
+//}
+//
+//
+//int main()
+//{
+//	char arr1[] = "xixi@qq.com";
+//	char arr2[] = "@.";
+//
+//	//char* p = strtok(arr1, arr2);
+//	//printf("%s\n",p);
+//
+//	//p = strtok(NULL, arr2);
+//	//printf("%s\n", p);
+//
+//	//p = strtok(NULL, arr2);
+//	//printf("%s\n", p);
+//
+//	//for循环用法
+//	for (char* p = my_strtok(arr1, arr2); p != NULL; p = my_strtok(NULL, arr2))
+//	{
+//		printf("%s\n", p);
+//	}
+//	return 0;
+//}
 
 
-int main()
-{
-	char arr1[] = "xixi@qq.com";
-	char arr2[] = "@.";
 
-	//char* p = strtok(arr1, arr2);
-	//printf("%s\n",p);
 
-	//p = strtok(NULL, arr2);
-	//printf("%s\n", p);
+//strerror熟悉与使用
+//int main()
+//{
+//
+//	char* p = strerror(1);
+//	printf("%s\n",p);
+//	
+//	p = strerror(2);
+//	printf("%s\n", p);
+//
+//	p = strerror(3);
+//	printf("%s\n", p);
+//
+//	p = strerror(4);
+//	printf("%s\n", p);
+//
+//	p = strerror(5);
+//	printf("%s\n", p);
+//
+//	return 0;
+//
+//}
 
-	//p = strtok(NULL, arr2);
-	//printf("%s\n", p);
 
-	//for循环用法
-	for (char* p = my_strtok(arr1, arr2); p != NULL; p = my_strtok(NULL, arr2))
-	{
-		printf("%s\n", p);
-	}
-	return 0;
-}
+//iscntrl熟悉与使用
+//作用：检测字符是否是控制字符，返回结果为真代表是，反之为不是
+//int main()
+//{
+//	int i = 0;
+//	int j = 0;
+//
+//	char arr1[] = "abc\adef\tgh";
+//	char arr2[] = "123\t456";
+//
+//	while (!iscntrl(arr1[i]))
+//	{
+//		printf("%c",arr1[i]);
+//		i++;
+//	}
+//	printf("\n");
+//	while (!iscntrl(arr2[j]))
+//	{
+//		printf("%c", arr2[j]);
+//		j++;
+//	}
+//
+//}
+
+
+//isspace熟悉和使用
+// 检查字符是否是“空白字符”
+//int main()
+//{
+//	int i = 0;
+//	char arr[] = "123\tawd\fcxz\nffgg \0";
+//
+//	while (arr[i] != 0)
+//	{
+//		if (isspace(arr[i]))
+//		{
+//			printf("arr[%d]是空白字符,ASCII是%d\n",i+1,arr[i]);
+//		}
+//		i++;
+//	}
+//
+//	return 0;
+//}
+
+
+//isdigit的熟悉和使用
+//用于检查其参数是否为十进制数字字符，若参数c为阿拉伯数字0~9，则返回非0值，否则返回0。
+//int main()
+//{
+//	int i = 0;
+//	char arr[] = "2rt34tgg";
+//	while (arr[i] != 0)
+//	{
+//		if (isdigit(arr[i]))
+//			printf("arr[%d]是阿拉伯数字，为:%d\n",i+1,arr[i]);
+//		i++;
+//	}
+//	return 0;
+//}
+
+
+
+//isdigit的熟悉和使用
+//用于检查其参数是否为十六进制数字字符，若参数为十六进制数字，则返回非0值，否则返回0。
+//int main()
+//{
+//
+//	int i = 0;
+//	char arr[] = "2rt34tgg9fkvc";
+//	while (arr[i] != 0)
+//	{
+//		if (isxdigit(arr[i]))
+//			printf("arr[%d]是十六进制数字，为:%x\n",i+1,arr[i]);
+//		i++;
+//	}
+//
+//	return 0;
+//}
