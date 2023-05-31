@@ -912,9 +912,158 @@
 //	while (arr[i] != 0)
 //	{
 //		if (isxdigit(arr[i]))
-//			printf("arr[%d]是十六进制数字，为:%x\n",i+1,arr[i]);
+//			printf("arr[%d]是十六进制数字，为:%c\n",i+1,arr[i]);
 //		i++;
 //	}
 //
+//	return 0;
+//}
+
+
+
+//islower熟悉与使用
+//若参数为小写英文字母，则返回TRUE，否则返回NULL(0)。
+//int main()
+//{
+//	int i = 0;
+//	char arr[] = "2rt34tgg9fkvc";
+//	while (arr[i] != 0)
+//	{
+//		if (islower(arr[i]))
+//			printf("arr[%d]是小写英文字母，为:%c\n",i+1,arr[i]);
+//		i++;
+//	}
+//	return 0;
+//}
+
+
+//isupper熟悉与使用
+//判断字符是否为大写英文字母
+//int main()
+//{
+//	int i = 0;
+//	char arr[] = "23FFG43dadwRG";
+//	while (arr[i] != 0)
+//	{
+//		if (isupper(arr[i]))
+//			printf("arr[%d]是大写英文字母，为:%c\n",i+1,arr[i]);
+//		i++;
+//	}
+//	return 0;
+//}
+
+
+
+//isalpha的熟悉和使用
+//判断字符变量是否为字母，若是则返回非零，否则返回零。
+//int main()
+//{
+//	char ch = 'Q';// -  1
+//	int ret = isalpha(ch);
+//	printf("%d\n",ret);
+//
+//	ch = 'q';//  -   2
+//	ret = isalpha(ch);
+//	printf("%d\n", ret);
+//
+//	ch = '1';//  -    0
+//	ret = isalpha(ch);
+//	printf("%d\n", ret);
+//
+//	return 0;
+//}
+
+
+//isalnum熟悉和使用
+//判断字符变量c是否为字母或数字，若是则返回非零，否则返回零。
+//int main()
+//{
+//	char ch = 'Q';// -  1
+//	int ret = isalnum(ch);
+//	printf("%d\n",ret);
+//
+//	ch = 'q';//  -   2
+//	ret = isalnum(ch);
+//	printf("%d\n", ret);
+//
+//	ch = '1';//  -    4
+//	ret = isalnum(ch);
+//	printf("%d\n", ret);
+//	return 0;
+//}
+
+
+
+//ispunct的熟悉和使用
+//判断字符变量为标点符号或特殊符号
+//int main()
+//{
+//	char ch = 'Q';// -  0
+//	int ret = ispunct(ch);
+//	printf("%d\n",ret);
+//
+//	ch = 'q';//  -   0
+//	ret = ispunct(ch);
+//	printf("%d\n", ret);
+//
+//	ch = '1';//  -    0
+//	ret = ispunct(ch);
+//	printf("%d\n", ret);
+//
+//	ch = ' ';//  -    0
+//	ret = ispunct(ch);
+//	printf("%d\n", ret);
+//
+//	ch = '+';//  -    16
+//	ret = ispunct(ch);
+//	printf("%d\n", ret);
+//	return 0;
+//}
+
+
+
+//isgraph的熟悉和使用
+//判断字符变量为可打印字符（变量所对映的ASCII码可打印）
+//int main()
+//{
+//	char ch = 'Q';// -  1
+//	int ret = isgraph(ch);
+//	printf("%d\n",ret);
+//
+//	ch = 'q';//  -   2
+//	ret = isgraph(ch);
+//	printf("%d\n", ret);
+//
+//	ch = '@';//  -   16
+//	ret = isgraph(ch);
+//	printf("%d\n", ret);
+//
+//	ch = ' ';//  -   0
+//	ret = isgraph(ch);
+//	printf("%d\n", ret);
+//	return 0;
+//}
+
+
+
+//isprint的熟悉和使用
+//判断字符变量为可打印字符（含空格,变量所对映的ASCII码可打印）
+//int main()
+//{
+//	char ch = 'Q';// -  1
+//	int ret = isprint(ch);
+//	printf("%d\n",ret);
+//
+//	ch = 'q';//  -   2
+//	ret = isprint(ch);
+//	printf("%d\n", ret);
+//
+//	ch = '@';//  -   16
+//	ret = isprint(ch);
+//	printf("%d\n", ret);
+//
+//	ch = ' ';//  -   64
+//	ret = isprint(ch);
+//	printf("%d\n", ret);
 //	return 0;
 //}
