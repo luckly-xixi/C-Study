@@ -1067,3 +1067,116 @@
 //	printf("%d\n", ret);
 //	return 0;
 //}
+
+
+
+//memcpy熟悉和使用
+//int main()
+//{
+//	//char arr1[] = "abcdef";
+//	//char arr2[20] = {0};
+//	//memcpy(arr2, arr1, 2);
+//	//printf("%s\n", arr2);
+//
+//	int arr3[] = { 1,2,3,4,5,6 };
+//	int arr4[20] = {0};
+//	memcpy(arr4,arr3,24);
+//	for (int i = 0; arr4[i] != 0; i++)
+//	{
+//		printf("%d\n",arr4[i]);
+//	}
+//	return 0;
+//}
+
+
+
+//my_memcpy的实现
+//void* my_memcpy(void* dest, void* src, size_t num)
+//{
+//	assert(dest && src);
+//	void* ret = dest;
+//	while (num--)
+//	{
+//		*(char*)dest = *(char*)src;
+//		dest = (char*)dest + 1;
+//		src = (char*)src + 1;
+//	}
+//	return ret;
+//}
+//
+//int main()
+//{
+//	char arr1[] = "abcdef";
+//	char arr2[20] = {0};
+//	my_memcpy(arr2, arr1, 2);
+//	printf("%s\n", arr2);
+//	return 0;
+//}
+
+
+
+//memmove的熟悉和使用
+
+//int main()
+//{
+//	char arr[] = "abcdef";
+//	memmove(arr + 2, arr, 4);
+//	printf("%s\n",arr);
+//	return 0;
+//}
+
+
+
+//my_memmove的实现
+//void* my_memmove(void* dest, void* src, size_t num)
+//{
+//	assert(dest && src);
+//	void* ret = dest;
+//		if (dest < src)
+//		{
+//			while (num--)
+//			{
+//				*(char*)dest = *(char*)src;
+//				dest = (char*)dest + 1;
+//				src = (char*)src + 1;
+//			}
+//		}
+//		else
+//		{
+//			while (num--)
+//			{
+//				*((char*)dest + num) = *((char*)src + num);
+//			}
+//		}
+//		return ret;
+//}
+//
+//int main()
+//{
+//	char arr[] = "abcdef";
+//	my_memmove(arr + 2, arr, 4);
+//	printf("%s\n",arr);
+//	return 0;
+//}
+
+
+
+//memcmp的熟悉和使用
+//int main()
+//{
+//	char arr1[] = "abcde";
+//	char arr2[] = "abce";
+//	int ret = memcmp(arr1, arr2,4);
+//	printf("%d\n",ret);
+//	return 0;
+//}
+
+
+
+//memset的熟悉和使用
+//int main()
+//{
+//	char arr[20] = { 0 };
+//	memset(arr, 1, 8);
+//	return 0;
+//}
