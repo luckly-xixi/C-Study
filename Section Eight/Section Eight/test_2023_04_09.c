@@ -1172,11 +1172,69 @@
 //}
 
 
+//my_memcmp的实现
+//int my_memcmp(void* dest,void* src,size_t num)
+//{
+//	assert(dest && src);
+//	while (num--)
+//	{
+//		if (*(char*)dest == *(char*)src)
+//		{
+//			dest = (char*)dest + 1;
+//			src = (char*)src + 1;
+//		}
+//		else
+//		{
+//			return *(char*)dest - *(char*)src;
+//		}
+//	}
+//	return 0;
+//}
+//
+//int main()
+//{
+//	char arr1[] = "abcde";
+//	char arr2[] = "abcd";
+//	int ret = my_memcmp(arr1, arr2,4);
+//	printf("%d\n",ret);
+//	return 0;
+//}
 
 //memset的熟悉和使用
 //int main()
 //{
+//	//char arr[20] = { 0 };
+//	//memset(arr, 1, 8);
+//
+//
 //	char arr[20] = { 0 };
-//	memset(arr, 1, 8);
+//	memset(arr,'c',8);
+//
+//	return 0;
+//}
+
+
+//my_memset的实现
+//void* my_memset(void* dest,void* val,size_t num)
+//{
+//	assert(dest);
+//	void* ret = dest;
+//	while (num--)
+//	{
+//		*(char*)dest = (char*)val;
+//		dest = (char*)dest + 1;
+//	}
+//	return ret;
+//}
+//
+//
+//
+//int main()
+//{
+//	//char arr[20] = { 0 };
+//	//my_memset(arr, 1, 8);
+//
+//	char arr[20] = { 0 };
+//	memset(arr,'c',8);
 //	return 0;
 //}
