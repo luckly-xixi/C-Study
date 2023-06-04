@@ -14,26 +14,31 @@ int main()
 	{
 		menu();//菜单
 		printf("请选择：>\n");
-		scanf("%s", &input);
+		scanf("%d", &input);
 		switch (input)
 		{
-		case1:
+		case 1:
 			AddContact(&con);
 			break;
-		case2:
+		case 2:
+			DelContact(&con);
 			break;
-		case3:
+		case 3:
+			SearchContact(&con);
 			break;
-		case4:
+		case 4:
+			ModifyContact(&con);
 			break;
-		case5:
-			Show
+		case 5:
+			ShowContact(&con);
 			break;
-		case6:
+		case 6:
+			SortContact(&con);
 			break;
-		case0:
+		case 0:
 			break;
 		default:
+			printf("选择错误，请重新选择\n");
 			break;
 		}
 	} while (input);
