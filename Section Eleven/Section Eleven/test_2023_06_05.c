@@ -178,16 +178,83 @@
 //}
 
 
-struct A
+//struct A
+//{
+//	int a : 2;
+//	int b : 5;
+//	int c : 10;
+//	int d : 30;
+//};
+//
+//int main()
+//{
+//	printf("%d\n",sizeof(struct A));// 8
+//	return 0;
+//}
+
+
+
+
+
+//enum Color
+//{
+//	RED,
+//	BLUE,
+//	GREEN
+//};
+
+//enum Color
+//{
+//	//枚举的可能取值
+//	//每个可能取值是一个常量，在枚举之外是无法修改的
+//	RED = 2,
+//	BLUE = 5,
+//	GREEN = 'a'
+//};
+//
+//int main()
+//{
+//	enum Color A = RED;
+//	enum Color C = GREEN;
+//	enum Color B = 1;
+//	printf("%d\n",A);//2
+//	printf("%d\n",sizeof(A));
+//	printf("%d\n",sizeof(C));
+//	printf("%d\n",B);
+//	return 0;
+//}
+
+////联合类型的声明
+//union Un
+//{
+//	char c;
+//	int i;
+//};
+//int main()
+//{
+//	//联合变量的定义
+//	union Un un;
+//	//计算联合变量的大小
+//	printf("%d\n", sizeof(un));//4
+//	return 0;
+//}
+
+
+
+union Un1
 {
-	int a : 2;
-	int b : 5;
-	int c : 10;
-	int d : 30;
+	char c[5];
+	int i;
+};
+union Un2
+{
+	short c[7];
+	int i;
 };
 
 int main()
 {
-	printf("%d\n",sizeof(struct A));// 8
+	printf("%d\n", sizeof(union Un1));//8
+	printf("%d\n", sizeof(union Un2));//16
 	return 0;
 }
