@@ -13,6 +13,9 @@ void menu()
 	printf("******************************\n");
 }
 
+
+
+
 void InitConcatc(struct Contact* ps)
 {
 	ps->sz = 0;

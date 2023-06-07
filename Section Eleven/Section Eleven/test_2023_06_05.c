@@ -238,7 +238,11 @@
 //	printf("%d\n", sizeof(un));//4
 //	return 0;
 //}
-
+union Un2
+{
+	short c[7];
+	int i;
+};
 
 
 union Un1
@@ -246,15 +250,20 @@ union Un1
 	char c[5];
 	int i;
 };
-union Un2
-{
-	short c[7];
-	int i;
-};
 
 int main()
 {
-	printf("%d\n", sizeof(union Un1));//8
-	printf("%d\n", sizeof(union Un2));//16
+	union Un1 un;
+	printf("%p\n",&un);
+	printf("%p\n",&un.i);
+	printf("%p\n",&un.c);
 	return 0;
 }
+
+
+//int main()
+//{
+//	printf("%d\n", sizeof(union Un1));//8
+//	printf("%d\n", sizeof(union Un2));//16
+//	return 0;
+//}

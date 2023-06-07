@@ -3,7 +3,16 @@
 #include"Contact.h"
 
 
-
+enum menu
+{
+	EXIT,
+	ADD,
+	DEL,
+	SEARCH,
+	MODIFY,
+	SHOW,
+	SORT
+};
 
 int main()
 {
@@ -17,7 +26,8 @@ int main()
 		scanf("%d", &input);
 		switch (input)
 		{
-		case 1:
+//正常的switch使用
+		/*case 1:
 			AddContact(&con);
 			break;
 		case 2:
@@ -36,6 +46,34 @@ int main()
 			SortContact(&con);
 			break;
 		case 0:
+			break;
+		default:
+			printf("选择错误，请重新选择\n");
+			break;*/
+
+
+//枚举类型的适配
+		case ADD:
+			AddContact(&con);
+			break;
+		case DEL:
+			DelContact(&con);
+			break;
+		case SEARCH:
+			SearchContact(&con);
+			break;
+		case MODIFY:
+			ModifyContact(&con);
+			break;
+		case SHOW:
+			ShowContact(&con);
+			break;
+		case SORT:
+			SortContact(&con);
+			break;
+		case EXIT:
+			printf("退出\n");
+			return 0;
 			break;
 		default:
 			printf("选择错误，请重新选择\n");
