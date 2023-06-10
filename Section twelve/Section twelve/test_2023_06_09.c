@@ -31,13 +31,46 @@
 //malloc和free的使用
 //int main()
 //{
-//	char* p = (char*)malloc(4 * sizeof(char));
-//	p = "abcd";
-//	printf("%s\n",p);
+////	char* p = (char*)malloc(4 * sizeof(char));
+////	if (NULL == p)
+////	{
+////		perror("malloc");
+////		return 1;
+////	}
+////	p = "abcd";
+////	printf("%s\n",p);
+////
+//////使用过后主动释放指针并且将其置为空（NULL）
+////	free(p);
+////	p = NULL;
+////
+////
+////	char* ps = (char*)malloc(0);
+////	if (NULL == ps)
+////	{
+////		perror("malloc");
+////		return 1;
+////	}
+////	ps = "a";
+////	free(ps);
+////	ps = NULL;
 //
-////使用过后主动释放指针并且将其置为空（NULL）
-//	free(p);
-//	p = NULL;
+//
+//	int* p = (int*)malloc(4*sizeof(int));
+//	if (NULL == p)
+//	{
+//		perror("malloc");
+//		return 1;
+//	}
+//	for (int i = 0; i < 4; i++)
+//	{
+//		*(p + i) = i;
+//	}
+//
+//	for (int i = 0; i < 4; i++)
+//	{
+//		printf("%d\n",*(p+i));
+//	}
 //
 //
 //	return 0;
@@ -67,23 +100,31 @@
 //	return 0;
 //}
 
-int main()
-{
-	int* p = (int*)malloc(4 * sizeof(int));
-	if (NULL == p)
-	{
-		perror("malloc");
-		return 1;
-	}
-	int i = 0;
-	for (i = 0; i < 4; i++)
-	{
-		*(p + i) = i;
-	}
+//int main()
+//{
+//	int* p = (int*)malloc(4 * sizeof(int));
+//	if (NULL == p)
+//	{
+//		perror("malloc");
+//		return 1;
+//	}
+//	int i = 0;
+//	for (i = 0; i < 4; i++)
+//	{
+//		*(p + i) = i;
+//	}
+//
+//	for (i = 0; i < 4; i++)
+//	{
+//		printf("%d ", *(p + i));
+//	}
+//	return 0;
+//}
 
-	for (i = 0; i < 4; i++)
-	{
-		printf("%d ", *(p + i));
-	}
-	return 0;
-}
+
+//realloc的使用
+//int main()
+//{
+//
+//	return 0;
+//}
