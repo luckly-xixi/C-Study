@@ -167,3 +167,116 @@
 //
 //	return 0;
 //}
+
+
+
+//对NULL指针解引用
+
+//int main()
+//{
+//	int* p = (int*)malloc(INT_MAX);
+//	if (NULL == p)
+//	{
+//		free(p);
+//	}
+//	return 0;
+//}
+
+
+//对动态开辟空间的越界访问
+
+
+//int main()
+//{
+//	int* p = (int*)malloc(4 * sizeof(int));
+//	if (NULL == p)
+//		return 1;
+//	for (int i = 0; i <= 4; i++)
+//	{//在这里已经越界访问了，i不能等于4
+//		*(p + i) = i;
+//	}
+//	for (int i = 0; i <= 4; i++)
+//		printf("%d\n",*(p+i));
+//
+//	free(p);
+//	p = NULL;
+//
+//	return 0;
+//}
+
+//对非动态开辟内存使用free释放
+//int main()
+//{
+//	int* p = (int*)malloc(4 * sizeof(int));
+//	if (NULL == p)
+//		return 1;
+//	int a = 4;
+//	int* ptr = &a;
+//
+//	free(ptr);
+//
+//	return 0;
+//}
+
+
+
+//使用free释放一块动态开辟内存的一部分
+
+//int main()
+//{
+//	int* p = (int*)malloc(4 * sizeof(int));
+//	if (NULL == p)
+//		return 1;
+//
+//	for(int i=0; i<2; i++)
+//	{
+//		*p = i;
+//		p++;
+//	}
+//
+//	free(p);
+//	p = NULL;
+//	return 0;
+//}
+
+
+//对同一块动态内存多次释放
+
+
+//int main()
+//{
+//	int* p = (int*)malloc(4 * sizeof(int));
+//	if (NULL == p)
+//		return 1;
+//
+//	for (int i = 0; i < 4; i++)
+//	{
+//		*(p + i) = i;
+//
+//	}
+//
+//	free(p);
+//
+//	free(p);
+//	p = NULL;
+//	return 0;
+//}
+
+
+//动态开辟内存忘记释放（内存泄漏）3.6 动态开辟内存忘记释放（内存泄漏）
+
+//int main()
+//{
+//	int* p = (int*)malloc(4 * sizeof(int));
+//	if (NULL == p)
+//		return 1;
+//
+//	for (int i = 0; i < 4; i++)
+//	{
+//		*(p + i) = i;
+//
+//	}
+////未进行释放内存的操作
+//	return 0;
+//}
+
