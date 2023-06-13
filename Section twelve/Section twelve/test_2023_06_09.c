@@ -280,3 +280,72 @@
 //	return 0;
 //}
 
+
+
+//柔性数组
+
+//struct S
+//{
+//	int a;
+//	int arr[];
+//};
+
+
+//int main()
+//{
+//	//内存申请
+//	struct S* ps = (struct S*)malloc(sizeof(int)+10*sizeof(int));
+//	if (NULL == ps)
+//	{
+//		printf("申请错误");
+//		return 1;
+//	}
+//	//业务处理
+//	ps->a = 10;
+//	for (int i = 0; i < 10; i++)
+//	{
+//		ps->arr[i] = i;
+//	}
+//
+//	free(ps);
+//	ps = NULL;
+//	return 0;
+//}
+
+//int main()
+//{
+//	printf("%d\n",sizeof(struct S));//4
+//	return 0 ;
+//}
+
+
+
+//struct S
+//{
+//	int i;
+//	int* p;
+//};
+//
+//int main()
+//{
+//	//空间申请
+//	struct S* ps = (struct S*)malloc(sizeof(struct S));
+//	if (NULL == ps)
+//	{
+//		printf("申请空间失败\n");
+//		return 1;
+//	}
+//
+//	ps->i = 10;
+//	ps->p = (int*)malloc(ps->i * sizeof(int));
+//
+//	//业务处理
+//	for (int i = 0; i < ps->i; i++)
+//	{
+//		ps->p[i] = i;
+//	}
+//	//释放
+//	free(ps);
+//	ps = NULL;
+//	return 0;
+//}
