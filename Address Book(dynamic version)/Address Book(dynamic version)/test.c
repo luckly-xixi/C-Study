@@ -3,57 +3,58 @@
 #include"Contact.h"
 
 
-enum menu
-{
-	EXIT,
-	ADD,
-	DEL,
-	SEARCH,
-	MODIFY,
-	SHOW,
-	SORT
-};
-
-
-int mian()
-{
-	int input = 0;
-	struct Contact con;
-		do 
-		{
-			menu();
-			printf("请选择\n");
-			scanf("%d", &input);
-			switch (input)
-			{
-			case ADD:
-				AddContact(&con);
-				break;
-			case DEL:
-				DelContact(&con);
-				break;
-			case SEARCH:
-				SearchContact(&con);
-				break;
-			case MODIFY:
-				ModifyContact(&con);
-				break;
-			case SHOW:
-				ShowContact(&con);
-				break;
-			case SORT:
-				SortContact(&con);
-				break;
-			case EXIT:
-				printf("退出\n");
-				return 0;
-				break;
-			default:
-				printf("选择错误，请重新选择\n");
-				break;
-			}
-		} while (input);
-
-
-	return 0;
-}
+//enum menu
+//{
+//	EXIT,
+//	ADD,
+//	DEL,
+//	SEARCH,
+//	MODIFY,
+//	SHOW,
+//	SORT
+//};
+//
+//
+//int mian()
+//{
+//	int input = 0;
+//	struct Contact con;
+//	InitConcatc(&con);
+//		do 
+//		{
+//			menu();
+//			printf("请选择\n");
+//			scanf("%d", &input);
+//			switch (input)
+//			{
+//			case ADD:
+//				AddContact(&con);
+//				break;
+//			case DEL:
+//				DelContact(&con);
+//				break;
+//			case SEARCH:
+//				SearchContact(&con);
+//				break;
+//			case MODIFY:
+//				ModifyContact(&con);
+//				break;
+//			case SHOW:
+//				ShowContact(&con);
+//				break;
+//			case SORT:
+//				SortContact(&con);
+//				break;
+//			case EXIT:
+//				printf("退出\n");
+//				return 0;
+//				break;
+//			default:
+//				printf("选择错误，请重新选择\n");
+//				break;
+//			}
+//		} while (input);
+//
+//
+//	return 0;
+//}

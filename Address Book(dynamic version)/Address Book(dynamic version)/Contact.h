@@ -26,6 +26,19 @@ struct Contact
 	int sz;
 };
 
+//int main()
+//{
+//	int ret = sizeof(struct PeoInfo);
+//	printf("%d\n",ret);//76
+//	return 0;
+//}
+
+int main()
+{
+	int ret = sizeof(struct Contact);
+	printf("%d\n", ret);//7604
+	return 0;
+}
 
 //²Ëµ¥
 void menu();
