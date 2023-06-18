@@ -3,6 +3,10 @@
 
 #include<stdio.h>
 #include<stdlib.h>
+#include<string.h>
+
+
+
 #define MAX 100
 #define MAX_NAME 20
 #define MAX_SEX 5
