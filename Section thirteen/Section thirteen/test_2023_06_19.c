@@ -229,7 +229,7 @@ struct S
 //}
 
 
-//sscanf的使用 
+//sscanf的使用 //sprintf的使用
 //int main()
 //{
 //	struct S s = { "zhang san",25,180.3f };
@@ -249,4 +249,48 @@ struct S
 
 
 
-//sprintf的使用
+
+
+
+//fseek  rewind  ftell
+//int main()
+//{
+//	FILE* pf = fopen("test.txt", "r");
+//	if (NULL == pf)
+//	{
+//		perror("fopen:");
+//		return 1;
+//	}
+//	//从文件的起始位置开始偏移
+//	fseek(pf, 2, SEEK_SET);
+//	int ret = fgetc(pf);
+//	printf("%c\n",ret);
+//
+//	//返回文件当中的偏移量
+//	int tmp = ftell(pf);
+//	printf("文件当中记录指针的位置为：%d\n",tmp);
+//
+//	//从指针当前位置开始偏移
+//	fseek(pf, -2, SEEK_CUR);
+//	ret = fgetc(pf);
+//	printf("%c\n",ret);
+//
+//	tmp = ftell(pf);
+//	printf("文件当中记录指针的位置为：%d\n", tmp);
+//
+//	//从文件的末尾开始偏移
+//	fseek(pf,-3,SEEK_END);
+//	ret = fgetc(pf);
+//	printf("%c\n",ret);
+//
+//	tmp = ftell(pf);
+//	printf("文件当中记录指针的位置为：%d\n", tmp);
+//
+//	//让文件当中的指针指向起始位置
+//	rewind(pf);
+//	tmp = ftell(pf);
+//	printf("文件当中记录指针的位置为：%d\n", tmp);
+//
+//	return 0;
+//}
+
