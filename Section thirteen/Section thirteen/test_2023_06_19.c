@@ -44,10 +44,14 @@
 //		return 1;
 //	}
 //
-//	for (int i = 0; i < 26; i++)
-//	{
-//		fputc('a' + i, pf);
-//	}
+//	//for (int i = 0; i < 26; i++)
+//	//{
+//	//	fputc('a' + i, pf);
+//	//}
+//	//int a = 'a';
+//	//int ret = putc('a', pf);
+//	//printf("%d", ret);//97
+//	//printf("%d",a);//97
 //
 //	//关闭文件
 //	fclose(pf);
@@ -57,7 +61,7 @@
 //	return 0;
 //}
 
-
+  
 //读字符
 //int main()
 //{
@@ -71,20 +75,24 @@
 //	}
 //
 //
-	//读文件
-	//for (int i = 0; i < 26; i++)
-	//{
-	//	int ch = fgetc(pf);
-	//	printf("%c",ch);
-	//}
-
-
-	//int ch = 0;
-	//while ((ch = fgetc(pf))!= EOF)
-	//{
-	//	printf("%c", ch);
-	//}
+//	////读文件
+//	//for (int i = 0; i < 26; i++)
+//	//{
+//	//	int ch = fgetc(pf);
+//	//	printf("%c",ch);
+//	//}
 //
+//
+//	//int ch = 0;
+//	//while ((ch = fgetc(pf))!= EOF)
+//	//{
+//	//	printf("%c", ch);
+//	//}
+//
+//	//int a = 'a';
+//	//int ret = fgetc(pf);
+//	//printf("%d\n",ret);//97
+//	//printf("%d\n",a);//97
 //
 //	//关闭文件
 //	fclose(pf);
@@ -104,13 +112,16 @@
 //		return 1;
 //	}
 //	
-	////fputs("hello",pf);
-	////fputs("world",pf);
- ////会自动在字符串后面放一个' \0 '
- ////并且在写文件的时候不在字符串中主动放一个换行转义字符的话，并不会在文件当中主动换行
- ////多次输入的时候默认在字符串末尾去加上之后加的相对应的字符串
-	//fputs("hello\n", pf);
-	//fputs("world", pf);
+//	//fputs("hello",pf);
+//	//fputs("world",pf);
+// //会自动在字符串后面放一个' \0 '
+// //并且在写文件的时候不在字符串中主动放一个换行转义字符的话，并不会在文件当中主动换行
+// //多次输入的时候默认在字符串末尾去加上之后加的相对应的字符串
+//	int ret = fputs("hello\n", pf);
+//	printf("%d\n",ret);
+//	ret = fputs("world", pf);
+//	printf("%d\n", ret);
+//
 //
 //	fclose(pf);
 //	pf = NULL;
@@ -130,10 +141,11 @@
 //	}
 //		fputs("hello",pf);
 //
-	//char arr[20]="**********";
-	//fgets(arr,20,pf);
-	////读取的时候会将文件里的换行和空格读取打印，并且，一次读取遇见换行默认结束
-	//printf("%s",arr);
+//	char arr[20]="**********";
+//	int ret = fgets(arr,20,pf);
+//	//读取的时候会将文件里的换行和空格读取打印，并且，一次读取遇见换行默认结束
+//	printf("%s",arr);
+//	printf("%d",ret);
 //
 //	fclose(pf);
 //	pf = NULL;
@@ -294,3 +306,32 @@ struct S
 //	return 0;
 //}
 
+
+int main()
+{
+	int c;
+	FILE* pf = fopen("test.txt","r");
+	if (NULL == pf)
+	{
+		perror("fopen:");
+		return 1;
+	}
+
+	while ((c == fgetc(pf) != EOF))
+	{
+		putchar(c);
+	}
+
+	if (ferror(pf))
+	{
+		puts("I/O error when reading");
+	}
+	else if (feod(pf))
+	{
+		puts("End of file reached successfully");
+	}
+
+	fclose(pf);
+	pf == NULL;
+	return 0;
+}
