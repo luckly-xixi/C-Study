@@ -2,6 +2,26 @@
 
 #include"Contact.h"
 
+//柔性数组首次开辟空间
+struct Contact* Oepning_up_space()
+{
+	struct Contcat* pf = (struct Contact*)maolloc(sizeof(int) + sizeof(struct PeoInfo) * 10);
+	if (NULL == pf)
+	{
+		perror("Opening up malloc:");
+		return NULL;
+	}
+	return pf;
+}
+
+//初始化通讯录
+void InitConcatc(struct Contact* ps)
+{
+	ps->sz = 0;
+	//置为空
+	memset(ps->data,NULL,10*sizeof(struct PeoInfo));
+}
+
 //菜单
 void menu()
 {
@@ -14,41 +34,35 @@ void menu()
 }
 
 
-//初始化通讯录
-void InitConcatc(struct Contact* ps)
-{
-	ps->sz = 0; 
-	memset(ps->data,0,10*sizeof(struct PeoInfo));
-}
-
 void is_full(struct Contact* ps)
 {
-	if (MAX == ps->sz)
+	if (sizeof(struct PeoInfo) == ps->sz)
 	{
-		struct PeoInfo* p = realloc(ps, (MAX + MAX / 2) * sizeof(struct PeoInfo));
+		struct PeoInfo* p = realloc(ps, (sizeof(struct PeoInfo) + sizeof(struct PeoInfo) / 2) * sizeof(struct PeoInfo));
 		if (NULL == p)
 		{
 			perror("调整空间realloc:");
+			return;
 		}
 	}
 }
 
-void grow()
-{
-	struct PeoInfo* p = malloc(10*sizeof(struct PeoInfo));
-	if (NULL == p)
-	{
-		perror("起始开辟空间malloc:");
-	}
-}
+//void grow()
+//{
+//	struct PeoInfo* p = malloc(10*sizeof(struct PeoInfo));
+//	if (NULL == p)
+//	{
+//		perror("起始开辟空间malloc:");
+//	}
+//}
 
 //增加通讯录
 void AddContact(struct Contact* ps)
 {
-	if (0 == ps->sz)
-	{//调整空间
-		grow(ps);
-	}
+	//if (0 == ps->sz)
+	//{//调整空间
+	//	grow(ps);
+	//}
 	is_full(ps);
 
 	printf("请输入联系人姓名：\n");

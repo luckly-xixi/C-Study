@@ -15,11 +15,16 @@ enum menu
 };
 
 
-int mian()
+int main()
 {
 	int input = 0;
-	struct Contact con;
-	InitConcatc(&con);
+	//柔性数组开辟空间
+	struct Contact* con = Oepning_up_space();
+	if (NULL == con)
+	{
+		return 1;
+	}
+	InitConcatc(con);
 		do 
 		{
 			menu();
@@ -28,22 +33,22 @@ int mian()
 			switch (input)
 			{
 			case ADD:
-				AddContact(&con);
+				AddContact(con);
 				break;
 			case DEL:
-				DelContact(&con);
+				DelContact(con);
 				break;
 			case SEARCH:
-				SearchContact(&con);
+				SearchContact(con);
 				break;
 			case MODIFY:
-				ModifyContact(&con);
+				ModifyContact(con);
 				break;
 			case SHOW:
-				ShowContact(&con);
+				ShowContact(con);
 				break;
 			case SORT:
-				SortContact(&con);
+				SortContact(con);
 				break;
 			case EXIT:
 				printf("退出\n");

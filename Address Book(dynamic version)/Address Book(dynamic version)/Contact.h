@@ -26,8 +26,8 @@ struct PeoInfo
 
 struct Contact
 {
-	struct PeoInfo data[MAX];
 	int sz;
+	struct PeoInfo data[];
 };
 
 //int main()
@@ -44,11 +44,17 @@ struct Contact
 //	return 0;
 //}
 
-//菜单
-void menu();
+
+
+
+//柔性数组首次开辟空间
+struct Contact* Oepning_up_space();
 
 //初始化通讯录
 void InitConcatc(struct Contact* ps);
+
+//菜单
+void menu();
 
 //增加通讯录
 void AddContact(struct Contact* ps);
