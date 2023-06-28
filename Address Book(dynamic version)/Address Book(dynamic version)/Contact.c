@@ -1,11 +1,11 @@
-#define _CRT_SECURE_NO_WARNINGS 1
+#define  _CRT_SECURE_NO_WARNINGS 1
 
 #include"Contact.h"
 
 //柔性数组首次开辟空间
 struct Contact* Oepning_up_space()
 {
-	struct Contcat* pf = (struct Contact*)maolloc(sizeof(int) + sizeof(struct PeoInfo) * 10);
+	struct Contact* pf = (struct Contact*)malloc(sizeof(int) + sizeof(struct PeoInfo) * 10);
 	if (NULL == pf)
 	{
 		perror("Opening up malloc:");
@@ -34,17 +34,21 @@ void menu()
 }
 
 
-void is_full(struct Contact* ps)
+struct Contact* is_full(struct Contact* ps)
 {
 	if (sizeof(struct PeoInfo) == ps->sz)
 	{
-		struct PeoInfo* p = realloc(ps, (sizeof(struct PeoInfo) + sizeof(struct PeoInfo) / 2) * sizeof(struct PeoInfo));
+		//如果满了就增容
+		struct PeoInfo* p = realloc(ps, sizeof(int) + (ps->sz / 2 + ps->sz) * sizeof(struct PeoInfo));
 		if (NULL == p)
 		{
+			//判断调整空间是否出错
 			perror("调整空间realloc:");
-			return;
+			return NULL;
 		}
+		return p;
 	}
+	return ps;
 }
 
 //void grow()
@@ -63,14 +67,20 @@ void AddContact(struct Contact* ps)
 	//{//调整空间
 	//	grow(ps);
 	//}
-	is_full(ps);
-
+	// 
+	//检查是否容量满了
+	struct Contact*  p = is_full(ps);
+	if (NULL == p)
+	{
+		printf("空间错误\n");
+		return;
+	}
 	printf("请输入联系人姓名：\n");
 	scanf("%s",ps->data[ps->sz].name);
 	printf("请输入联系人性别：\n");
 	scanf("%s", ps->data[ps->sz].sex);
 	printf("请输入联系人年龄：\n");
-	scanf("%s", &ps->data[ps->sz].age);
+	scanf("%s", & ps->data[ps->sz].age);
 	printf("请输入联系人电话：\n");
 	scanf("%s", ps->data[ps->sz].tele);
 	printf("请输入联系人住址：\n");
@@ -97,9 +107,11 @@ int FindByName(struct Contact* ps,char name[])
 	{
 		if (0 == strcmp(ps->data[i].name,name))
 		{
+			//寻找联系人存在
 			return i;
 		}
 	}
+	//不存在
 	return -1;
 }
 
@@ -238,3 +250,6 @@ void SortContact(struct Contact* ps)
 {
 	qsort(ps->data, ps->sz, sizeof(struct PeoInfo), CmpByAge);
 }
+
+
+

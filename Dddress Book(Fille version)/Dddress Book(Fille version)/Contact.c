@@ -5,7 +5,7 @@
 //柔性数组首次开辟空间
 struct Contact* Oepning_up_space()
 {
-	struct Contcat* pf = (struct Contact*)maolloc(sizeof(int) + sizeof(struct PeoInfo) * 10);
+	struct Contact* pf = (struct Contact*)malloc(sizeof(int) + sizeof(struct PeoInfo) * 10);
 	if (NULL == pf)
 	{
 		perror("Opening up malloc:");
@@ -24,7 +24,7 @@ void InitConcatc(struct Contact* ps)
 
 
 //加载数据
-void DowloadContact(struct Contact* ps)
+void DownloadContact(struct Contact* ps)
 {
 	FILE* p = fopen("Contact.txt", "rb");
 	if (NULL == p)
@@ -37,11 +37,11 @@ void DowloadContact(struct Contact* ps)
 	{
 		struct Contact s;
 		fscanf(p, "%s\t%d\t%s\t%s\t%s\n",
-			ps->data[i].name,
-			ps->data[i].age,
-			ps->data[i].sex,
-			ps->data[i].tele,
-			ps->data[i].addr);
+			ps->data[ps->sz].name,
+			ps->data[ps->sz].age,
+			ps->data[ps->sz].sex,
+			ps->data[ps->sz].tele,
+			ps->data[ps->sz].addr);
 		ps->sz++;
 	}
 }

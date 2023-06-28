@@ -52,7 +52,7 @@ void SortContact(struct Contact* ps);
 void ShowContact(const struct Contact* ps);
 
 //加载数据
-void DowloadContact(struct Contact* ps);
+void DownloadContact(struct Contact* ps);
 
 //存储通讯录到文件中
 void SaveContact(struct Contact* ps);

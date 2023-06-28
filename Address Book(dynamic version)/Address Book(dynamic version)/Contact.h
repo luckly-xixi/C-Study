@@ -73,3 +73,4 @@ void SortContact(struct Contact* ps);
 
 //¥Ú”°’π æ
 void ShowContact(const struct Contact* ps);
+

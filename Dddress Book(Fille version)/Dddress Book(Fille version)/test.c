@@ -24,7 +24,7 @@ int main()
 		return 1;
 	}
 	InitConcatc(con);
-	DowloadContact(con);
+	DownloadContact(con);
 	do
 	{
 		menu();
