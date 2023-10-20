@@ -296,3 +296,308 @@
 //}
 
 
+//#include <stdio.h>
+//
+//int hanoi(int n, char a, char b, char c)
+//{
+//    int count = 0; // 记录移动次数
+//
+//    if (n > 0) {
+//        count += hanoi(n - 1, a, c, b); // 将n-1个圆盘从A移动到B
+//        printf("Move disk %d from %c to %c\n", n, a, c); // 将第n个圆盘从A移动到C
+//        count++;
+//        count += hanoi(n - 1, b, a, c); // 将n-1个圆盘从B移动到C
+//    }
+//
+//    return count;
+//}
+//
+//int main()
+//{
+//    int n, count;
+//
+//    printf("Enter the number of disks: ");
+//    scanf("%d", &n);
+//
+//    count = hanoi(n, 'A', 'B', 'C');
+//    printf("\nTotal number of moves: %d\n", count);
+//
+//    return 0;
+//}
+
+
+
+//#include <stdio.h>
+//
+//int hanoi(int n, char a, char b, char c)
+//{
+//    if (n == 1) {
+//        printf("Move disk from %c to %c\n", a, c); // 将第1个圆盘从A移动到C
+//        return 1;
+//    }
+//    else {
+//        int count = 0;
+//
+//        count += hanoi(n - 1, a, c, b); // 将n-1个圆盘从A移动到B
+//        printf("Move disk from %c to %c\n", a, c); // 将第n个圆盘从A移动到C
+//        count++;
+//        count += hanoi(n - 1, b, a, c); // 将n-1个圆盘从B移动到C
+//
+//        return count;
+//    }
+//}
+//
+//int main()
+//{
+//    int n, count;
+//
+//    printf("输入圆盘的数量: ");
+//    scanf("%d", &n);
+//
+//    count = hanoi(2 * n, 'A', 'B', 'C');
+//    printf("\n完成任务所需的最少移动次数: %d\n", count);
+//
+//    return 0;
+//}
+
+//#include <stdio.h>
+//#include <math.h>
+//
+//int hanoi(int n)
+//{
+//    int count = 0;
+//    if (n == 1) {
+//        count = 1;
+//    }
+//    else {
+//        int i;
+//        for (i = 1; i <= n; i++) {
+//            count = 2 * hanoi(n - i) + pow(2, i - 1) - 1;
+//        }
+//    }
+//
+//    return count;
+//}
+//
+//int main()
+//{
+//    int n, count;
+//
+//    printf("输入圆盘的数量: ");
+//    scanf("%d", &n);
+//
+//    count = hanoi(n);
+//    printf("\n完成任务所需的最少移动次数: %d\n", count);
+//
+//    return 0;
+//}
+
+
+//#include <stdio.h>
+//#include <stdlib.h>
+//
+//typedef struct stack {
+//    int top;
+//    int capacity;
+//    int* array;
+//} Stack;
+//
+//Stack* createStack(int capacity) {
+//    Stack* stack = (Stack*)malloc(sizeof(Stack));
+//    stack->top = -1;
+//    stack->capacity = capacity;
+//    stack->array = (int*)malloc(capacity * sizeof(int));
+//    return stack;
+//}
+//
+//void push(Stack* stack, int item) {
+//    if (stack->top == stack->capacity - 1) {
+//        printf("栈溢出错误");
+//        exit(1);
+//    }
+//
+//    stack->top++;
+//    stack->array[stack->top] = item;
+//}
+//
+//int pop(Stack* stack) {
+//    if (stack->top == -1) {
+//        printf("栈下溢错误");
+//        exit(1);
+//    }
+//
+//    int item = stack->array[stack->top];
+//    stack->top--;
+//    return item;
+//}
+//
+//void hanoi(int n)
+//{
+//    Stack* src = createStack(n);
+//    Stack* tmp = createStack(n);
+//    Stack* dst = createStack(n);
+//
+//    int i;
+//    for (i = n; i >= 1; i--) {
+//        push(src, i);
+//    }
+//
+//    int count = 0;
+//    int flag = 1;
+//    while (src->top != -1 || tmp->top != -1) {
+//        if (flag) {
+//            if (src->top == -1) {
+//                int tmpItem = pop(tmp);
+//                int dstItem = pop(dst);
+//                push(src, dstItem);
+//                push(src, tmpItem);
+//            }
+//            else if (tmp->top == -1) {
+//                int srcItem = pop(src);
+//                int dstItem = pop(dst);
+//                push(tmp, dstItem);
+//                push(tmp, srcItem);
+//            }
+//            else if (src->array[src->top] > tmp->array[tmp->top]) {
+//                int dstItem = pop(dst);
+//                int tmpItem = pop(tmp);
+//                push(dst, tmpItem);
+//                push(dst, dstItem);
+//                count++;
+//            }
+//            else {
+//                int dstItem = pop(dst);
+//                int srcItem = pop(src);
+//                push(tmp, srcItem);
+//                push(tmp, dstItem);
+//                count++;
+//            }
+//        }
+//        else {
+//            if (src->top == -1) {
+//                int tmpItem = pop(tmp);
+//                int dstItem = pop(dst);
+//                push(src, tmpItem);
+//                push(src, dstItem);
+//            }
+//            else if (dst->top == -1) {
+//                int srcItem = pop(src);
+//                int tmpItem = pop(tmp);
+//                push(dst, tmpItem);
+//                push(dst, srcItem);
+//            }
+//            else if (src->array[src->top] > dst->array[dst->top]) {
+//                int tmpItem = pop(tmp);
+//                int dstItem = pop(dst);
+//                push(src, dstItem);
+//                push(src, tmpItem);
+//                count++;
+//            }
+//            else {
+//                int tmpItem = pop(tmp);
+//                int srcItem = pop(src);
+//                push(dst, srcItem);
+//                push(dst, tmpItem);
+//                count++;
+//            }
+//        }
+//
+//        flag = !flag;
+//    }
+//
+//    printf("\n完成任务所需的最少移动次数: %d\n", count);
+//}
+//
+//int main()
+//{
+//    int n;
+//
+//    printf("输入圆盘的数量: ");
+//    scanf("%d", &n);
+//
+//    hanoi(n);
+//
+//    return 0;
+//}
+
+
+//#include <stdio.h>
+//
+//// 定义栈结构（用于存储汉诺塔移动过程中的状态）
+//typedef struct {
+//    int n;      // 当前待移动的圆盘数量
+//    char src;   // 源柱子
+//    char tmp;   // 中间柱子
+//    char dst;   // 目标柱子
+//} Stack;
+//
+//// 定义栈的操作：入栈和出栈
+//void push(Stack* stack, int* top, Stack element) {
+//    stack[++(*top)] = element;
+//}
+//
+//Stack pop(Stack* stack, int* top) {
+//    return stack[(*top)--];
+//}
+
+// 汉诺塔非递归迭代方法
+//int hanoi(int n) {
+//    Stack stack[100];   // 定义一个栈，用于存储汉诺塔移动过程中的状态
+//    int top = -1;       // 栈顶指针
+//    int count = 0;      // 移动次数
+//    Stack cur;          // 当前状态
+//
+//    // 初始状态入栈
+//    cur.n = n;
+//    cur.src = 'A';
+//    cur.tmp = 'B';
+//    cur.dst = 'C';
+//    push(stack, &top, cur);
+//
+//    while (top >= 0) {
+//        // 出栈当前状态
+//        cur = pop(stack, &top);
+//
+//        if (cur.n == 1) {
+//            printf("从 %c 移动圆盘到 %c\n", cur.src, cur.dst);
+//            count++;
+//        }
+//        else {
+//            // 将当前状态按照移动规则分解成三个子任务，并推入栈中
+//            Stack temp;
+//
+//            // 移动子任务1：将 n-1 个圆盘从 src 柱移动到 tmp 柱
+//            temp.n = cur.n - 1;
+//            temp.src = cur.src;
+//            temp.tmp = cur.dst;
+//            temp.dst = cur.tmp;
+//            push(stack, &top, temp);
+//
+//            // 移动子任务2：将第 n 个圆盘从 src 柱移动到 dst 柱
+//            printf("从 %c 移动圆盘到 %c\n", cur.src, cur.dst);
+//            count++;
+//
+//            // 移动子任务3：将 n-1 个圆盘从 tmp 柱移动到 dst 柱
+//            temp.n = cur.n - 1;
+//            temp.src = cur.tmp;
+//            temp.tmp = cur.src;
+//            temp.dst = cur.dst;
+//            push(stack, &top, temp);
+//        }
+//    }
+//
+//    return count;
+//}
+//
+//int main() {
+//    int n;
+//
+//    printf("输入圆盘的数量: ");
+//    scanf("%d", &n);
+//
+//    int count = hanoi(n);
+//
+//    printf("\n完成任务所需的最少移动次数: %d\n", count);
+//
+//    return 0;
+//}
